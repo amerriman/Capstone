@@ -15,13 +15,17 @@ chai.use(chaiHttp);
 
 
 describe('server router', function(){
-  it('should return...', function(done){
-    chai.request(server)
-    .get('/')
-    .end(function(err, res){
-      // console.log(res);
-      res.should.have.status(200);
-      done();
-    });
-  });
+
+
+  // it('should return...', function(done){
+  //   chai.request(server)
+  //   .get('/')
+  //   .end(function(err, res){
+  //     // console.log(res);
+  //     res.should.have.status(200);
+  //     done();
+  //   });
+  // });
+
+
 });
