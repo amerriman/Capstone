@@ -2,7 +2,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcryptjs');
 //this might not be right
-var config = require ('../../../config');
+// var config = require ('../../../_config');
+// var Student = require('./student.js');
+// var Writing = require('./writing.js');
 
 var Teacher = new Schema({
   email: {
@@ -22,12 +24,13 @@ var Teacher = new Schema({
     type: String
   },
   code: String,
-  students: [{type: Schema.Types.ObjectID, ref: 'students'}],
-  writings: [{type: Schema.Types.ObjectID, ref: 'writings'}]
+  students: [{type: Schema.Types.ObjectId, ref: 'students'}],
+  writings: [{type: Schema.Types.ObjectId, ref: 'writings'}]
 });
 
+//might need to change all "User" to 'Teacher'
 // hash before saving to database
-User.pre('save', function(next) {
+Teacher.pre('save', function(next) {
   var user = this;
 
   // only hash if the password is new or modified
@@ -49,7 +52,7 @@ User.pre('save', function(next) {
 });
 
 // verify for plain-text and hashed passwords
-User.methods.comparePassword = function(password, done) {
+Teacher.methods.comparePassword = function(password, done) {
   bcrypt.compare(password, this.password, function(err, isMatch) {
     done(err, isMatch);
   });
