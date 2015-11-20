@@ -10,7 +10,7 @@ var mongoose = require('mongoose');
 
 
 // *** config file *** //
-var config = require('../../_config');
+var config = require('../../_config.js');
 
 // *** routes *** //
 var routes = require('./routes/index.js');
