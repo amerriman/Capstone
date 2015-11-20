@@ -73,7 +73,7 @@ describe('Writing', function(){
         .end(function(err, res){
           res.should.have.status(200);
           res.should.be.json;
-          console.log(res.body, "resbody get single")
+          // console.log(res.body, "resbody get single")
           res.body.should.be.a('object');
           res.body.should.have.property('text');
           res.body.should.have.property('positiveWords');
