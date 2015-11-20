@@ -41,7 +41,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 
 // *** mongoose ** //
-mongoose.connect(config.MONGO_URI);
+mongoose.connect(config.MONGO_URI[app.settings.env]);
 
 
 // *** main routes *** //
