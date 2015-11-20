@@ -3,7 +3,7 @@ process.env.NODE_ENV = 'test';
 var chai = require('chai');
 // var mocha = require('mocha');
 var chaiHttp = require('chai-http');
-var mongoose = require('mongoose');
+var mongoose = require('mongoose-q')(require('mongoose'));
 var server = require('../src/server/app.js');
 
 // var Teacher = require('../src/server/models/teacher');
@@ -96,7 +96,7 @@ describe('Student', function() {
         .end(function(err, res){
           res.should.have.status(200);
           res.should.be.json;
-          console.log(res.body, "resbody get single");
+          // console.log(res.body, "resbody get single");
           res.body.should.be.a('object');
           res.body.should.have.property('username');
           res.body.should.have.property('writings');
@@ -119,7 +119,7 @@ describe('Student', function() {
     .end(function(err, res){
       res.should.have.status(200);
       res.should.be.json;
-      console.log(res.body, "post one")
+      // console.log(res.body, "post one")
       // res.body.should.be.a('object');
       // res.body.should.have.property('SUCCESS');
       // res.body.SUCCESS.should.be.a('object');

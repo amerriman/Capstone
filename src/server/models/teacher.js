@@ -1,8 +1,8 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose-q')(require('mongoose'));
 var Schema = mongoose.Schema;
 var bcrypt = require('bcryptjs');
 //this might not be right
-// var config = require ('../../../_config');
+var config = require ('../../../_config');
 // var Student = require('./student.js');
 // var Writing = require('./writing.js');
 
