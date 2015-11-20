@@ -15,6 +15,7 @@ var config = require('../../_config');
 // *** routes *** //
 var routes = require('./routes/index.js');
 var authRoutes = require('./routes/auth.js');
+var writingRoutes = require('./routes/writing.js');
 
 
 // *** express instance *** //
@@ -38,6 +39,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client')));
 
+
 // *** mongoose ** //
 mongoose.connect(config.MONGO_URI);
 
@@ -45,6 +47,7 @@ mongoose.connect(config.MONGO_URI);
 // *** main routes *** //
 app.use('/', routes);
 app.use('/auth', authRoutes);
+app.use('/writing', writingRoutes);
 
 
 // catch 404 and forward to error handler
