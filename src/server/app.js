@@ -21,7 +21,6 @@ var writingRoutes = require('./routes/writing.js');
 // *** express instance *** //
 var app = express();
 
-
 // *** view engine *** //
 var swig = new swig.Swig();
 app.engine('html', swig.renderFile);
