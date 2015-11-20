@@ -4,10 +4,12 @@ var mongoURI = {
   production: process.env.MONGOLAB_URI
 };
 
-module.exports = {
+
+var config = {
   TOKEN_SECRET: process.env.TOKEN_SECRET,
   MONGO_URI: mongoURI,
   SALT_WORK_FACTOR: 10,
   GOOGLE_SECRET: process.env.GOOGLE_SECRET,
 };
 
+module.exports = config;

@@ -2,12 +2,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcryptjs');
 //this might not be right
-// var config = require ('../../../_config');
+var config = require ('../../../_config.js');
 
 var Student = new Schema({
-  username: {
-    type: String
-  },
+  username: String,
   password: {
     type: String,
     select: false
