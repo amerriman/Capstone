@@ -108,5 +108,32 @@ describe('Student', function() {
     });
   });
 
+  it('should add a SINGLE student', function(done){
+    chai.request(server)
+    .post('/stUser/students')
+    .send({
+      "username": "Max Smith",
+      "password": "1234",
+      "writings": []
+    })
+    .end(function(err, res){
+      res.should.have.status(200);
+      res.should.be.json;
+      console.log(res.body, "post one")
+      // res.body.should.be.a('object');
+      // res.body.should.have.property('SUCCESS');
+      // res.body.SUCCESS.should.be.a('object');
+      // res.body.should.be.a('object');
+      // res.body.SUCCESS.should.have.property('text');
+      // res.body.SUCCESS.should.have.property('positiveWords');
+      // res.body.SUCCESS.should.have.property('negativeWordCount');
+      // res.body.SUCCESS.text.should.equal("Someday there will be an ugly rainbow on the moon");
+      // res.body.SUCCESS.positiveWords.should.be.a('array');
+      // res.body.SUCCESS.positiveWords[0].should.equal('rainbow');
+      // res.body.SUCCESS.textWordCount.should.equal(10);
+      done();
+    });
+});
+
 
 });

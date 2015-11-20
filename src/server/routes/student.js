@@ -26,5 +26,20 @@ router.get('/student/:id', function(req, res, next){
   });
 });
 
+router.post('/students', function(req, res, next){
+  newStudent = new Student({
+    username: req.body.username,
+    password: req.body.password,
+    writings: []
+  });
+  newStudent.save(function(err, data){
+    if(err){
+      res.json({'message': err});
+    } else {
+      res.json({"SUCCESS": data});
+    }
+  });
+});
+
 
 module.exports = router;
