@@ -3,7 +3,7 @@ process.env.NODE_ENV = 'test';
 var chai = require('chai');
 // var mocha = require('mocha');
 var chaiHttp = require('chai-http');
-var mongoose = require('mongoose-q')(require('mongoose'));
+var mongoose = require('mongoose');
 var server = require('../src/server/app.js');
 
 // var Teacher = require('../src/server/models/teacher');
