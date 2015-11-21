@@ -6,8 +6,8 @@ var chaiHttp = require('chai-http');
 var mongoose = require('mongoose-q')(require('mongoose'));
 var server = require('../src/server/app.js');
 
-var Teacher = require('../src/server/models/teacher');
-var Student = require('../src/server/models/student');
+// var Teacher = require('../src/server/models/teacher');
+// var Student = require('../src/server/models/student');
 var Writing = require('../src/server/models/writing');
 
 var should = chai.should();
@@ -139,14 +139,5 @@ it('should delete a SINGLE writing', function(done) {
     });
 });
 
-  // it('should return...', function(done){
-  //   chai.request(server)
-  //   .get('/')
-  //   .end(function(err, res){
-  //     // console.log(res);
-  //     res.should.have.status(200);
-  //     done();
-  //   });
-  // });
 
 });

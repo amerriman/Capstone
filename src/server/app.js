@@ -17,7 +17,7 @@ var routes = require('./routes/index.js');
 var authRoutes = require('./routes/auth.js');
 var writingRoutes = require('./routes/writing.js');
 var studentRoutes = require('./routes/student.js');
-// var teacherRoutes = require('./routes/teacher.js');
+var teacherRoutes = require('./routes/teacher.js');
 
 
 // *** express instance *** //
@@ -50,7 +50,7 @@ app.use('/', routes);
 app.use('/auth', authRoutes);
 app.use('/writing', writingRoutes);
 app.use('/stUser', studentRoutes);
-// app.use('/teaUser', teacherRoutes);
+app.use('/teaUser', teacherRoutes);
 
 
 

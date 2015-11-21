@@ -15,9 +15,11 @@ chai.use(chaiHttp);
 
 describe('Teachers', function() {
 
-Teacher.collection.drop();
 
   beforeEach(function(done){
+
+    Teacher.collection.drop();
+
     var testTeacher = new Teacher({
       email: "test@test.com",
       password: "test",
@@ -31,6 +33,7 @@ Teacher.collection.drop();
       done();
     });
   });
+
   afterEach(function(done){
     Teacher.collection.drop();
     done();
@@ -38,7 +41,7 @@ Teacher.collection.drop();
 
   it ('should list all teachers on /teachers/ get', function(done){
     chai.request(server)
-    .get('/auth/teachers')
+    .get('/teaUser/teachers')
     .end(function(err, res){
       res.should.have.status(200);
       res.should.be.json;
@@ -61,6 +64,7 @@ Teacher.collection.drop();
     });
   });
 
+
   it('should list a SINGLE teacher on /teacher/:id get', function(done) {
     var newTeacher = new Teacher({
       email: "fancy@fancy.com",
@@ -73,7 +77,7 @@ Teacher.collection.drop();
     });
     newTeacher.save(function(err, data) {
       chai.request(server)
-        .get('/auth/teacher/'+data.id)
+        .get('/teaUser/teacher/'+data.id)
         .end(function(err, res){
           res.should.have.status(200);
           res.should.be.json;
@@ -96,12 +100,13 @@ Teacher.collection.drop();
   });
 
 
-  it('should delete a SINGLE exercise on /api/exercise/<id> DELETE', function(done) {
+
+  it('should delete a SINGLE teacher on /teaUser/teacher/<id> DELETE', function(done) {
     chai.request(server)
-      .get('/auth/teachers')
+      .get('/teaUser/teachers')
       .end(function(err, res){
         chai.request(server)
-          .delete('/auth/teacher/'+res.body[0]._id)
+          .delete('/teaUser/teacher/'+res.body[0]._id)
           .end(function(error, response){
             response.should.have.status(200);
             response.should.be.json;
@@ -116,6 +121,48 @@ Teacher.collection.drop();
         });
       });
   });
+
+
+  //Post a writing for a teacher
+
+
+
+
+  //Get all writing for a teacher
+
+
+
+
+  //Get one writing for a teacher
+
+
+
+
+
+  //delete a writing for a teacher
+
+
+
+
+  //Get all students for a teacher
+
+
+
+  //Get all STUDENT WRITINGS for a teacher
+
+
+
+
+
+  //Get one student for a teacher
+
+
+
+
+  //Get on STUDENT WRITING for a teacher
+
+
+
 
 
 

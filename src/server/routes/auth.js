@@ -52,7 +52,7 @@ function createToken(user) {
   return jwt.encode(payload, config.TOKEN_SECRET);
 }
 
-// *** register route (name, email and password) *** //
+// *** teacher register route (name, email and password) *** //
 router.post('/signup', function(req, res) {
   Teacher.findOne({email: req.body.email}, function(err, existingUser) {
     if (existingUser) {
@@ -63,7 +63,8 @@ router.post('/signup', function(req, res) {
     var user = new Teacher({
       username: req.body.name,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      code: req.body.code
     });
     user.save(function() {
       var token = createToken(user);
@@ -75,7 +76,7 @@ router.post('/signup', function(req, res) {
   });
 });
 
-// *** login route (email and password) *** //
+// *** teacher login route (email and password) *** //
 router.post('/login', function(req, res) {
   Teacher.findOne({email: req.body.email}, '+password', function(err, user) {
     if (!user) {
@@ -102,7 +103,7 @@ router.post('/login', function(req, res) {
   });
 });
 
-// *** update user route *** //
+// *** update teacher user route *** //
 router.put('/update', ensureAuthenticated, function(req, res) {
   Teacher.findOne({_id: req.body._id}, function(err, user) {
     if (!user) {
@@ -122,40 +123,40 @@ router.put('/update', ensureAuthenticated, function(req, res) {
 });
 
 
-//get all teachers - (an admin only route?)
-router.get('/teachers', function(req, res, next){
-  Teacher.findQ({})
-  .then(function(data){
-    res.json(data);
-  })
-  .catch(function(err){
-    res.json({'message': err});
-  });
-});
+// //get all teachers - (an admin only route?)
+// router.get('/teachers', function(req, res, next){
+//   Teacher.findQ({})
+//   .then(function(data){
+//     res.json(data);
+//   })
+//   .catch(function(err){
+//     res.json({'message': err});
+//   });
+// });
 
 
-//get single teacher information (admin only route?)
-router.get('/teacher/:id', function(req, res, next){
-  Teacher.findByIdQ(req.params.id)
-  .then(function(result){
-    res.json(result);
-  })
-  .catch(function(err){
-    res.send(err);
-  });
-});
+// //get single teacher information (admin only route?)
+// router.get('/teacher/:id', function(req, res, next){
+//   Teacher.findByIdQ(req.params.id)
+//   .then(function(result){
+//     res.json(result);
+//   })
+//   .catch(function(err){
+//     res.send(err);
+//   });
+// });
 
-//delete a teacher
-router.delete('/teacher/:id', function(req, res, next){
-  Teacher.findByIdAndRemoveQ(req.params.id)
-  .then(function(result){
-    res.json({'REMOVED' : result});
-    // console.log(result, "RESULT IN ROUTE")
-  })
-  .catch(function(err){
-    res.send(err);
-  });
-});
+// //delete a teacher
+// router.delete('/teacher/:id', function(req, res, next){
+//   Teacher.findByIdAndRemoveQ(req.params.id)
+//   .then(function(result){
+//     res.json({'REMOVED' : result});
+//     // console.log(result, "RESULT IN ROUTE")
+//   })
+//   .catch(function(err){
+//     res.send(err);
+//   });
+// });
 
 
 
