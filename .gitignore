@@ -3,3 +3,5 @@ node_modules/
 npm-debug.log
 *.env
 _env.sh
+notes.txt
+

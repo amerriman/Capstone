@@ -27,6 +27,7 @@ router.get('/sample/:id', function(req, res, next) {
 //***  add new writing(only to database, not to a user) - working ADMIN ONLY ***//
 router.post('/samples', function(req, res, next) {
   newWriting = new Writing({
+    title: req.body.title,
     text: req.body.text,
     positiveWords: req.body.positiveWords,
     negativeWords: req.body.negativeWords,

@@ -22,7 +22,7 @@ describe('Teachers', function() {
   // Writing.collection.drop();
   // Teacher.collection.drop();
 
-//create a test teacher account
+//*** create a test teacher account ***//
     var testTeacher = new Teacher({
       email: "test@test.com",
       password: "test",
@@ -203,6 +203,7 @@ describe('Teachers', function() {
     .end(function(error, response){
       var teacher = response.body[0];
       var teacherWriting = new Writing({
+        title: 'Title',
         text: "Sally sells seashells by the seashore alone in the dark",
         positiveWords: ["seashells", "Sally"],
         negativeWords: ["sells", "alone", "dark"],
@@ -214,6 +215,8 @@ describe('Teachers', function() {
     teacherWriting.save();
     chai.request(server)
       .post('/teaUser/teacher/' + response.body[0]._id + '/writings')
+      //Don't need this send?  Seems to work either way?
+      .send(teacherWriting)
       .end(function(err, res){
         res.should.have.status(200);
         res.should.be.json;
@@ -234,6 +237,7 @@ describe('Teachers', function() {
   //*** Get all writing for a teacher - working ***//
   it('should get a single teachers writings on /teaUser/teacher/:id/writings get', function(done){
     var newWriting = new Writing({
+      title: 'Super Title',
       text: "Sally sells seashells by the seashore alone in the dark",
       positiveWords: ["seashells", "Sally"],
       negativeWords: ["sells", "alone", "dark"],
@@ -268,9 +272,11 @@ describe('Teachers', function() {
         // console.log(res.body.success[0], "resbody")
         res.body.success.should.be.a('array');
         res.body.success[0].should.have.property('text');
+        res.body.success[0].should.have.property('title');
         res.body.success[0].should.have.property('negativeWordCount');
         res.body.success[0].should.have.property('positiveWords');
         res.body.success[0].text.should.equal('Sally sells seashells by the seashore alone in the dark');
+        res.body.success[0].title.should.equal('Super Title');
         res.body.success[0].negativeWords.should.be.a('array');
         res.body.success[0].positiveWords[0].should.equal('seashells');
         done();
@@ -349,7 +355,7 @@ describe('Teachers', function() {
 
 
 
-  //*** Get on STUDENT WRITING for a teacher ***//
+  //*** Get one STUDENT WRITING for a teacher ***//
 
 
 

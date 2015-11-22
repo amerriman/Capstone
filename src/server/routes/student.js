@@ -70,6 +70,7 @@ router.get('/student/:id', function(req, res, next){
 //*** post to add single writing to a student - working ***//
 router.post('/student/:id/writings', function(req, res, next){
   var newWriting = new Writing({
+    title: req.body.title,
     text: req.body.text,
     positiveWords: req.body.positiveWords,
     negativeWords: req.body.negativeWords,
@@ -110,7 +111,6 @@ router.get('/student/:id/writings', function(req, res, next){
     }
   });
 });
-
 
 
 

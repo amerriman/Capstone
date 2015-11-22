@@ -32,6 +32,7 @@ router.get('/teacher/:id', function(req, res, next){
 //*** post to add single writing to a teacher - working ***//
 router.post('/teacher/:id/writings', function(req, res, next){
   var newWriting = new Writing({
+    title: req.body.title,
     text: req.body.text,
     positiveWords: req.body.positiveWords,
     negativeWords: req.body.negativeWords,

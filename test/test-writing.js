@@ -20,6 +20,7 @@ describe('Writing', function(){
 
   beforeEach(function(done){
     var newWriting = new Writing({
+      title: "This is a title",
       text: "There once was a man from Nantucket",
       positiveWords: ["once", "from"],
       negativeWords: ["Nantucket", "was"],
@@ -47,12 +48,14 @@ describe('Writing', function(){
         res.body.should.be.a('array');
         res.body[0].should.have.property('_id');
         res.body[0].should.have.property('text');
+        res.body[0].should.have.property('title');
         res.body[0].should.have.property('positiveWords');
         res.body[0].should.have.property('negativeWordCount');
         res.body[0].text.should.equal("There once was a man from Nantucket");
         res.body[0].positiveWords.should.be.a('array');
         res.body[0].positiveWords[0].should.equal('once');
         res.body[0].negativeWordCount.should.equal(2);
+        res.body[0].title.should.equal('This is a title');
         done();
       });
   });
@@ -60,6 +63,7 @@ describe('Writing', function(){
 //get a single writing sample
   it('should list a SINGLE writing', function(done) {
     var newWriting = new Writing({
+      title: "Oh hey, a title!",
       text: "Sally sells seashells by the seashore alone in the dark",
       positiveWords: ["seashells", "Sally"],
       negativeWords: ["sells", "alone", "dark"],
@@ -76,6 +80,7 @@ describe('Writing', function(){
           // console.log(res.body, "resbody get single")
           res.body.should.be.a('object');
           res.body.should.have.property('text');
+          res.body.should.have.property('title');
           res.body.should.have.property('positiveWords');
           res.body.should.have.property('negativeWordCount');
           res.body.text.should.equal("Sally sells seashells by the seashore alone in the dark");
@@ -92,6 +97,7 @@ it('should add a SINGLE writing', function(done){
     chai.request(server)
     .post('/writing/samples')
     .send({
+      'title': "Title title",
       'text': "Someday there will be an ugly rainbow on the moon",
       'positiveWords': ["rainbow", "moon"],
       'negativeWords': ["ugly"],
@@ -110,6 +116,7 @@ it('should add a SINGLE writing', function(done){
       res.body.SUCCESS.should.have.property('text');
       res.body.SUCCESS.should.have.property('positiveWords');
       res.body.SUCCESS.should.have.property('negativeWordCount');
+      res.body.SUCCESS.should.have.property('title');
       res.body.SUCCESS.text.should.equal("Someday there will be an ugly rainbow on the moon");
       res.body.SUCCESS.positiveWords.should.be.a('array');
       res.body.SUCCESS.positiveWords[0].should.equal('rainbow');
@@ -132,6 +139,7 @@ it('should delete a SINGLE writing', function(done) {
           response.body.should.have.property('REMOVED');
           response.body.REMOVED.should.be.a('object');
           response.body.REMOVED.should.have.property('text');
+          response.body.REMOVED.should.have.property('title');
           response.body.REMOVED.should.have.property('_id');
           response.body.REMOVED.text.should.equal("There once was a man from Nantucket");
           done();
