@@ -10,6 +10,7 @@ var config = {
   MONGO_URI: mongoURI,
   SALT_WORK_FACTOR: 10,
   GOOGLE_SECRET: process.env.GOOGLE_SECRET,
+  WATSON_KEY: process.env.WATSON_KEY
 };
 
 module.exports = config;
