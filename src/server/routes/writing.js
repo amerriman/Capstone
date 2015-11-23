@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Writing = require('../models/writing');
 
-//***  get all writings - working - ADMIN ONLY ***//
+//***  get all writings - working - ***//
 router.get('/samples', function(req, res, next) {
   Writing.find(function(err, data){
     if(err){
@@ -13,7 +13,7 @@ router.get('/samples', function(req, res, next) {
   });
 });
 
-//***  get one writing - working - ADMIN ONLY ***//
+//***  get one writing - working - ***//
 router.get('/sample/:id', function(req, res, next) {
   Writing.findById(req.params.id, function (err, data){
      if (err) {
@@ -45,7 +45,7 @@ router.post('/samples', function(req, res, next) {
   });
 });
 
-//***  delete a writing from the database (not attached to user) -working ADMIN ONLY***//
+//***  delete a writing from the database ***//
 router.delete('/sample/:id', function (req, res, next) {
   Writing.findByIdAndRemove(req.params.id, function (err, data) {
     if (err) {

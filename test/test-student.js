@@ -68,6 +68,25 @@ describe('Student', function() {
     done();
   });
 
+
+
+
+//*** Registering a student - not sure how to test that... ***//
+//   it('should add a SINGLE student', function(done){
+//     chai.request(server)
+//     .post('/stUser/register')
+//     .send({
+//       "username": "Max Smith",
+//       "password": "1234",
+//     })
+//     .end(function(err, res){
+//       res.should.have.status(200);
+//       res.should.be.json;
+
+//       done();
+//     });
+// });
+
   //*** get all students - working ***//
   it('should list ALL students on GET', function(done) {
     var testStudent = new Student({
@@ -122,25 +141,9 @@ describe('Student', function() {
   });
 
 
-// // Registering a student - not sure how to test that...
-//   it('should add a SINGLE student', function(done){
-//     chai.request(server)
-//     .post('/stUser/register')
-//     .send({
-//       "username": "Max Smith",
-//       "password": "1234",
-//     })
-//     .end(function(err, res){
-//       res.should.have.status(200);
-//       res.should.be.json;
-
-//       done();
-//     });
-// });
-
 
   ///*** post one writing for a student - working ***//
-  it('should add a writing to a student on /teaUser/student/:id/writings  POST', function(done){
+  it('should add a writing to a student on /stUser/student/:id/writings  POST', function(done){
     chai.request(server)
     .get('/stUser/students/')
     .end(function(error, response){
@@ -282,7 +285,7 @@ describe('Student', function() {
         if(err){
           console.log("DAMMIT!");
         } else {
-          console.log(res.writings[0], "WORKED BY GOLLY!");
+          // console.log(res.writings[0], "WORKED BY GOLLY!");
         }
       });
 
@@ -316,60 +319,54 @@ describe('Student', function() {
 
 
 
-  //*** Delete one writing for a student ***//
-    //find one by title or id, delete and then make sure it's out of the student array
+  //*** Delete one writing from a student - (show deleted) ***//
+  it('should delete a writing from a student writings array once that writing is removed from the collection', function(done){
+    chai.request(server)
+    .get('/stUser/students/')
+    .end(function(error, response){
+      // console.log(response.body, "RESPONSE")
+      var student = response.body[0]._id;
+      console.log(student, "STUDENT");
+      var studentWriting = new Writing({
+        title: "Title",
+        text: "Sally sells seashells by the seashore alone in the dark",
+        positiveWords: ["seashells", "Sally"],
+        negativeWords: ["sells", "alone", "dark"],
+        positiveWordCount: 2,
+        negativeWordCount: 3,
+        textWordCount: 10
+      });
 
-  // it('should get a single students writings on /stUser/student/:id/writings get', function(done){
-  //   var newWriting = new Writing({
-  //     title: "Some Title",
-  //     text: "Someday there will be an ugly rainbow on the moon",
-  //     positiveWords: ["rainbow", "moon"],
-  //     negativeWords: ["ugly"],
-  //     positiveWordCount: 2,
-  //     negativeWordCount: 1,
-  //     textWordCount: 10
-  //   });
-
-  //   newWriting.save();
-
-  //   chai.request(server)
-  //   .get('/stUser/students/')
-  //   .end(function(error, response){
-
-  //     var id = response.body[0]._id;
-  //     var update = {$push : {writings : newWriting}};
-  //     var options = {new:true};
-
-  //     Student.findByIdAndUpdate(id, update, options, function(err, res){
-  //       if(err){
-  //         console.log("DAMMIT!");
-  //       } else {
-  //         // console.log(res, "WORKED BY GOLLY!");
-  //       }
-  //     });
-
-  //     chai.request(server)
-  //     .get('/stUser/student/' + response.body[0]._id + '/writings')
-  //     .end(function(err, res){
-  //       res.should.have.status(200);
-  //       res.should.be.json;
-  //       // console.log(res.body.success[0], "resbody")
-  //       res.body.success.should.be.a('array');
-  //       res.body.success[0].should.have.property('text');
-  //       res.body.success[0].should.have.property('title');
-  //       res.body.success[0].should.have.property('negativeWordCount');
-  //       res.body.success[0].should.have.property('positiveWords');
-  //       res.body.success[0].text.should.equal('Someday there will be an ugly rainbow on the moon');
-  //       res.body.success[0].text.should.equal('Some Title');
-  //       res.body.success[0].negativeWords.should.be.a('array');
-  //       res.body.success[0].positiveWords[0].should.equal('rainbow');
-  //       done();
-  //     });
-  //   });
-  // });
-
-
-
+      studentWriting.save();
+      chai.request(server)
+        .post('/stUser/student/' + student + '/writings')
+        .end(function(err, res){
+         // console.log(res.body, "RESBODY");
+         var writingID = res.body.SUCCESS.writings[0];
+          // console.log(writingID, 'WritingID');
+          chai.request(server)
+          .delete('/writing/sample/' + writingID)
+          .end(function(err, res){
+             // console.log(res.body, "RES");
+             // console.log(err, "ERR");
+            chai.request(server)
+            .get('/stUser/students/')
+            .end(function(err2, res2){
+              chai.request(server)
+              .get('/stUser/student/' + res2.body[0]._id + '/writings/')
+              .end(function(err3, res3){
+              // console.log(res3.body, 'res3.body');
+                res3.should.have.status(200);
+                res3.should.be.json;
+                res3.body.success.should.be.a('array');
+                res3.body.success.length.should.equal(0);
+                done();
+              });
+            });
+          });
+      });
+    });
+  });
 
 
 

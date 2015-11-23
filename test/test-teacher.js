@@ -168,7 +168,19 @@ describe('Teachers', function() {
     });
   });
 
+
 //*** Update a teacher?  For updating their profile? ***//
+// How to test this with authentication?
+// it('should update a teacher profile info on /update', function(done){
+//   chai.request(server)
+//     .get('/teaUser/teachers')
+//     .end(function(err, res){
+
+
+//     });
+
+
+// });
 
 
 
@@ -286,20 +298,60 @@ describe('Teachers', function() {
 
 
 
+  //*** Delete one writing from a teacher - (show deleted) ***//
+  it('should delete a writing from a teacher writings array once that writing is removed from the collection', function(done){
+    chai.request(server)
+    .get('/teaUser/teachers/')
+    .end(function(error, response){
+      // console.log(response.body, "RESPONSE")
+      var teacher = response.body[0]._id;
+      console.log(teacher, "teacher");
+      var teacherWriting = new Writing({
+        title: "Title",
+        text: "Sally sells seashells by the seashore alone in the dark",
+        positiveWords: ["seashells", "Sally"],
+        negativeWords: ["sells", "alone", "dark"],
+        positiveWordCount: 2,
+        negativeWordCount: 3,
+        textWordCount: 10
+      });
 
-  //*** Get one writing for a teacher ***//
-
-
-
-
-
-  //*** delete a writing for a teacher ***//
+      teacherWriting.save();
+      chai.request(server)
+        .post('/teaUser/teacher/' + teacher + '/writings')
+        .end(function(err, res){
+         // console.log(res.body, "RESBODY");
+         var writingID = res.body.SUCCESS.writings[0];
+          // console.log(writingID, 'WritingID');
+          chai.request(server)
+          .delete('/writing/sample/' + writingID)
+          .end(function(err, res){
+             // console.log(res.body, "RES");
+             // console.log(err, "ERR");
+            chai.request(server)
+            .get('/teaUser/teachers/')
+            .end(function(err2, res2){
+              chai.request(server)
+              .get('/teaUser/teacher/' + res2.body[0]._id + '/writings/')
+              .end(function(err3, res3){
+              // console.log(res3.body, 'res3.body');
+                res3.should.have.status(200);
+                res3.should.be.json;
+                res3.body.success.should.be.a('array');
+                res3.body.success.length.should.equal(0);
+                done();
+              });
+            });
+          });
+      });
+    });
+  });
 
 
 
 
   //*** Get all students for a teacher -working ***//
-  it('should get a single teachers studentson /teaUser/teacher/:id/students get', function(done){
+  it('should get a single teachers students on /teaUser/teacher/:id/students get', function(done){
     var newStudent = new Student({
       username: "Some Kid",
       password: "moo",
@@ -342,24 +394,13 @@ describe('Teachers', function() {
   });
 
 
-
+      //these can all be handled with current route combos//
 
   //*** Get all STUDENT WRITINGS for a teacher ***//
 
-
-
-
-
   //*** Get one student for a teacher ***//
 
-
-
-
   //*** Get one STUDENT WRITING for a teacher ***//
-
-
-
-
 
 
 
