@@ -372,7 +372,6 @@ describe('Teachers', function() {
         if(err){
           console.log("DAMMIT!");
         } else {
-          // console.log(res, "WORKED BY GOLLY!");
         }
       });
 
@@ -381,7 +380,6 @@ describe('Teachers', function() {
       .end(function(err, res){
         res.should.have.status(200);
         res.should.be.json;
-        // console.log(res.body.success[0].username, "resbody")
         res.body.success.should.be.a('array');
         res.body.success[0].should.have.property('username');
         res.body.success[0].should.have.property('writings');
