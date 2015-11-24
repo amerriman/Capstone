@@ -1,22 +1,23 @@
-app.directive('signup', function () {
+app.directive('teacherSignup', function () {
   return {
     restrict: 'E',
     templateUrl: 'teacher-signup/teacherSignup.html',
     controller: ["$scope", "$http", "$auth", "$location", function ($scope, $http, $auth, $location) {
 
-      $scope.teacherSignUpForm = {};
+      $scope.teacherSignupForm = {};
 
       $scope.signup = function() {
-        var teacherUser = {
-          name: $scope.teacherSignUpForm.name,
-          email: $scope.teacherSignUpForm.email,
-          password: $scope.teacherSignUpForm.password,
-          code: $scope.teacherSignUpForm.code
+        var user = {
+          name: $scope.teacherSignupForm.name,
+          email: $scope.teacherSignupForm.email,
+          password: $scope.teacherSignupForm.password,
+          code: $scope.teacherSignupForm.code
         };
 
-        $auth.signup(teacherUser)
+        $auth.signup(user)
           .then(function(response){
-            $location.path('/login');
+            $scope.teacherSignupForm = {};
+            $location.path('/teacher-login');
           })
           .catch(function(response) {
             console.log(response.data, "RESPONSE.DATA in teacher register");
@@ -25,3 +26,5 @@ app.directive('signup', function () {
     }],
   };
 });
+
+//location path needs to be for teacher login

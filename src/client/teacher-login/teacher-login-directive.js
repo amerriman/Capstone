@@ -1,7 +1,7 @@
-app.directive('login', function () {
+app.directive('teacherLogin', function () {
   return {
     restrict: 'E',
-    templateUrl: 'teacher-login/teacherLogin.html',
+    templateUrl: '/teacher-login/teacherLogin.html',
     controller: ["$scope", "$auth", "$rootScope", "$window", "$location", function ($scope, $auth, $rootScope, $window, $location) {
       //$auth is for satellizer
 
