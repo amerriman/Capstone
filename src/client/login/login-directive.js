@@ -5,12 +5,12 @@ app.directive('teacherLogin', function () {
     controller: ["$scope", "$auth", "$rootScope", "$window", "$location", function ($scope, $auth, $rootScope, $window, $location) {
       //$auth is for satellizer
 
-        $scope.teacherLogin = {};
+        $scope.login = {};
 
-        $scope.teacherlogin = function() {
+        $scope.login = function() {
           var user = {
-            email: $scope.teacherLogin.email,
-            password: $scope.teacherLogin.password
+            username: $scope.login.username,
+            password: $scope.login.password
           };
 
           $auth.login(user)
@@ -41,7 +41,7 @@ app.directive('teacherLogin', function () {
         };
 
           $scope.isAuthenticated = function() {
-            console.log("HERE")
+            // console.log("HERE")
     return $auth.isAuthenticated();
   };
 

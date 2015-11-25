@@ -20,18 +20,13 @@ app.config(['$routeProvider', '$authProvider', '$locationProvider', function($ro
       // controller: 'signupCtrl',
       access: {restricted: false}
     })
-    .when('/teacher-login', {
-      templateUrl: 'partials/teacherLogin.html',
-      // controller: 'loginCtrl',
-      access: {restricted: false}
-    })
     .when('/student-signup', {
       templateUrl: 'partials/studentSignup.html',
       // controller: 'signupCtrl',
       access: {restricted: false}
     })
-    .when('/student-login', {
-      templateUrl: 'partials/studentLogin.html',
+    .when('/login', {
+      templateUrl: 'partials/login.html',
       // controller: 'loginCtrl',
       access: {restricted: false}
     })

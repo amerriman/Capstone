@@ -17,7 +17,7 @@ app.directive('studentSignup', function () {
         .then(function(response){
           console.log(response, 'RESPONSE');
           $scope.studentSignup = {};
-          $location.path('/student-login');
+          $location.path('/login');
         })
         .catch(function(response){
             console.log(response, 'response');
