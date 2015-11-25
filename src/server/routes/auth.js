@@ -7,6 +7,7 @@ var qs = require('querystring');
 
 var config = require('../../../_config');
 var Teacher = require('../models/teacher.js');
+var Student = require('../models/student');
 
 
 // *** login required *** //
@@ -73,8 +74,62 @@ router.post('/signup', function(req, res) {
         user: user
       });
     });
+    console.log(user, "USER in the teacher login")
   });
 });
+
+//it creates the token, but is not sending it to local storage..how to deal with this?
+//*** register a new student - working ***//
+router.post('/register', function(req, res, next){
+  var payload = {
+    username:req.body.username,
+    password:req.body.password
+  };
+  var query = {
+    code: req.body.code
+  };
+  Teacher.findOne(query, function(err, teacher){
+    if(err){
+      res.json({'message': err});
+    } else if(!teacher){
+      // console.log(err, "CODE ERR");
+      res.json({'message': "Whoops - invalid code!"});
+    } else if(teacher){
+      var user = new Student(payload);
+      console.log(user, "STUDENT USER");
+      user.save(function(err, user){
+        var token = createToken(user);
+        // console.log(token, 'TOKEN');
+        // res.send({
+        //   token: token,
+        //   user: user
+        // });
+        if(err){
+          res.json({'message': err});
+        } else if(user){
+
+          var options = {new:true};
+          var update = {$push:{students:user}};
+          Teacher.findOneAndUpdate(query, update, options, function(err, data){
+            if(err){
+              res.json({'message':err});
+            } else {
+              // var token = createToken(user);
+              console.log(token, "student token");
+              res.send({
+                token: token,
+                user: user
+              });
+            }
+          });
+        }
+      });
+    }
+  });
+});
+
+
+
 
 // *** teacher login route (email and password) *** //
 router.post('/login', function(req, res) {
@@ -103,24 +158,35 @@ router.post('/login', function(req, res) {
   });
 });
 
-// *** update teacher user route ORIGINAL*** //
-// router.put('/update', ensureAuthenticated, function(req, res) {
-//   Teacher.findOne({_id: req.body._id}, function(err, user) {
-//     if (!user) {
-//       return res.status(401).send({
-//         message: {
-//           email: 'Incorrect email'
-//         }
-//       });
-//     }
-//     user.email = req.body.email;
-//     user.username = req.body.name;
-//     user.code = req.body.code;
-//     user.save(function() {
-//       res.send(user);
-//     });
-//   });
-// });
+// *** student login route (username and password) *** //
+router.post('/studentLogin', function(req, res) {
+  Student.findOne({username: req.body.username}, '+password', function(err, user) {
+    if (!user) {
+      return res.status(401).send({
+        message: {
+          username: 'Incorrect username'
+        }
+      });
+    }
+    user.comparePassword(req.body.password, function(err, isMatch) {
+      if (!isMatch) {
+        return res.status(401).send({
+          message: 'Wrong username and/or password'
+        });
+      }
+      // console.log("MATCHED!!")
+      user = user.toObject();
+      delete user.password;
+      var token = createToken(user);
+      console.log(token, "TOKEN IN STUDENT LOGIN")
+      res.send({
+        token: token,
+        user: user
+      });
+    });
+  });
+});
+
 
 
 router.put('/update', ensureAuthenticated, function(req, res) {

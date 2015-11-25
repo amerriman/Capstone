@@ -1,25 +1,20 @@
-<div class="student-signup">
+<!-- <div class="student-signup"> -->
   <h1>Student Signup</h1>
   <form method="post" ng-submit="studentSignup()" name="studentSignupForm">
 
     <div class="form-group">
-      <input class="form-control input-lg" type="text" id="name" name="name" ng-model="name" placeholder="First and Last Name" required>
+      <input class="form-control input-lg" type="text" id="name" name="name" ng-model="studentSignup.username" placeholder="First and Last Name" required autofocus>
     </div>
 
     <div class="form-group">
-      <input class="form-control input-lg" type="password" name="password" ng-model="password" placeholder="Password" required>
+      <input class="form-control input-lg" type="password" name="password" ng-model="studentSignup.password" placeholder="Password" required>
     </div>
 
     <div class="form-group">
-      <input class="form-control input-lg" type="code" name="code" ng-model="code" placeholder="What's your code?" required>
+      <input class="form-control input-lg" type="text" name="code" ng-model="studentSignup.code" placeholder="What's your code?" required>
     </div>
 
     <button type="submit" class="btn btn-lg btn-block btn-primary">Sign Up!</button>
   </form>
-</div>
+<!-- </div> -->
 
-
-<!--
-    <div class="form-group">
-      <input class="form-control input-lg" type="text" id="username" name="username" ng-model="teacherForm.username" placeholder="Username (What shall we call you?)" required autocomplete='off'>
-    </div> -->

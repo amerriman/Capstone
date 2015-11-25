@@ -1,26 +1,26 @@
-<div class="teacher-signup">
+<!-- <div class="teacher-signup"> -->
   <h1>Teacher Signup</h1>
-  <form method="post" ng-submit="signup()" name="teacherSignupForm">
+  <form method="post" ng-submit="signup()" name="teacherSignupForm" >
 
     <div class="form-group">
-      <input class="form-control input-lg" type="text" id="name" name="name" ng-model="teacherSignupForm.name" placeholder="First and Last Name" required>
+      <input class="form-control input-lg" type="text" name="name" ng-model="teacherSignup.name" placeholder="First and Last Name" required autofocus>
     </div>
 
     <div class="form-group">
-      <input class="form-control input-lg" type="email" id="email" name="email" ng-model="teacherSignupForm.email" placeholder="Email" required>
+      <input class="form-control input-lg" type="email" name="email" ng-model="teacherSignup.email" placeholder="Email" required>
     </div>
 
     <div class="form-group">
-      <input class="form-control input-lg" type="password" name="password" ng-model="teacherSignupForm.password" placeholder="Password" required>
+      <input class="form-control input-lg" type="password" name="password" ng-model="teacherSignup.password" placeholder="Password" required>
     </div>
 
     <div class="form-group">
-      <input class="form-control input-lg" type="text" name="code" ng-model="teacherSignupForm.code" placeholder="code" required>
+      <input class="form-control input-lg" type="text" name="code" ng-model="teacherSignup.code" placeholder="code" required>
     </div>
 
     <button type="submit" class="btn btn-lg btn-block btn-primary">Sign Up!</button>
   </form>
-</div>
+<!-- </div> -->
 
 
 <!--

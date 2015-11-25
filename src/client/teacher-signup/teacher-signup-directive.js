@@ -1,17 +1,17 @@
 app.directive('teacherSignup', function () {
   return {
     restrict: 'E',
-    templateUrl: 'teacher-signup/teacherSignup.html',
+    templateUrl: '/teacher-signup/teacherSignup.html',
     controller: ["$scope", "$http", "$auth", "$location", function ($scope, $http, $auth, $location) {
 
-      $scope.teacherSignupForm = {};
+      $scope.teacherSignup = {};
 
       $scope.signup = function() {
         var user = {
-          name: $scope.teacherSignupForm.name,
-          email: $scope.teacherSignupForm.email,
-          password: $scope.teacherSignupForm.password,
-          code: $scope.teacherSignupForm.code
+          name: $scope.teacherSignup.name,
+          email: $scope.teacherSignup.email,
+          password: $scope.teacherSignup.password,
+          code: $scope.teacherSignup.code
         };
 
         $auth.signup(user)

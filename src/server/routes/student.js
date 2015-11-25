@@ -5,46 +5,6 @@ var Student = require('../models/student');
 var Teacher = require('../models/teacher');
 
 
-//*** register a new student - working ***//
-router.post('/register', function(req, res, next){
-  var payload = {
-    username:req.body.username,
-    password:req.body.password
-  };
-  var query = {
-    code: (req.body.code || "snarf")
-  };
-  Teacher.findOne(query, function(err, teacher){
-    if(err){
-      res.json({'message': err});
-    } else if(!teacher){
-      // console.log(err, "CODE ERR");
-      res.json({'message': "Whoops - invalid code!"});
-    } else if(teacher){
-      var newStudent = new Student(payload);
-      newStudent.save(function(err, student){
-        // console.log(student, "STUDENT");
-        if(err){
-        // console.log(err, "Register Err");
-          res.json({'message': err});
-        } else if(student){
-          var options = {new:true};
-          var update = {$push:{students:newStudent}};
-          Teacher.findOneAndUpdate(query, update, options, function(err, data){
-            if(err){
-              res.json({'message':err});
-            } else {
-            res.json(newStudent);
-            }
-          });
-        }
-      });
-    }
-  });
-});
-
-
-
 //*** get all students - working ***//
 router.get('/students', function(req, res, next) {
   Student.find(function(err, data){

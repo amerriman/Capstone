@@ -7,7 +7,7 @@ app.directive('teacherLogin', function () {
 
         $scope.teacherLogin = {};
 
-        $scope.login = function() {
+        $scope.teacherlogin = function() {
           var user = {
             email: $scope.teacherLogin.email,
             password: $scope.teacherLogin.password
@@ -39,6 +39,14 @@ app.directive('teacherLogin', function () {
           });
 
         };
+
+          $scope.isAuthenticated = function() {
+            console.log("HERE")
+    return $auth.isAuthenticated();
+  };
+
+
+
     }],
   };
 });
