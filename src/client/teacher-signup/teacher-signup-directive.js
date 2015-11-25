@@ -17,7 +17,7 @@ app.directive('teacherSignup', function () {
         $auth.signup(user)
           .then(function(response){
             $scope.teacherSignupForm = {};
-            $location.path('/teacher-login');
+            $location.path('/login');
           })
           .catch(function(response) {
             console.log(response.data, "RESPONSE.DATA in teacher register");

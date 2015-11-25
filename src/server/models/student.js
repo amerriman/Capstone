@@ -5,7 +5,10 @@ var bcrypt = require('bcryptjs');
 var config = require ('../../../_config.js');
 
 var Student = new Schema({
-  username: String,
+  username: {
+    type: String,
+    unique: true
+  },
   password: {
     type: String,
     select: false
