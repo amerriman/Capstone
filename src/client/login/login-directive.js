@@ -40,10 +40,18 @@ app.directive('login', function () {
 
         };
 
-          $scope.isAuthenticated = function() {
+        $scope.isAuthenticated = function() {
             // console.log("HERE")
-    return $auth.isAuthenticated();
-  };
+          return $auth.isAuthenticated();
+        };
+
+        $scope.logout = function() {
+          $auth.logout();
+          delete $window.localStorage.currentUser;
+          $location.path('/home');
+        };
+
+
 
 
 

@@ -3,9 +3,9 @@ var router = express.Router();
 var request = require('request');
 
 
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'This is going to BE SOMETHING!' });
-});
+// router.get('/', function(req, res, next) {
+//   res.render('index.html', { title: 'This is going to BE SOMETHING!' });
+// });
 
 
 router.get('/analyze/:text', function(req, res){

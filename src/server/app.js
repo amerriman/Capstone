@@ -62,7 +62,7 @@ app.use(function(req, res, next) {
 });
 
 
-// *** error handlers *** //
+// *** error handlers *** //can I use json here instead of res.send?
 
 // development error handler
 // will print stacktrace
