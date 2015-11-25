@@ -21,9 +21,13 @@ var Teacher = new Schema({
   type: String
   },
   username: {
-    type: String
+    type: String,
+    unique: true
   },
-  code: String,
+  code: {
+    type: String,
+    unique: true
+  },
   students: [{type: Schema.Types.ObjectId, ref: 'students'}],
   writings: [{type: Schema.Types.ObjectId, ref: 'writings'}]
 });

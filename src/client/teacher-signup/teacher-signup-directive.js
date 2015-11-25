@@ -27,4 +27,3 @@ app.directive('teacherSignup', function () {
   };
 });
 
-//location path needs to be for teacher login

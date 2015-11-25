@@ -55,7 +55,8 @@ function createToken(user) {
 
 // *** teacher register route (name, email and password) *** //
 router.post('/signup', function(req, res) {
-  Teacher.findOne({email: req.body.email}, function(err, existingUser) {
+  //need to break this down so it's more specific - check first email and username, and then code seperately so user gets a more specific error
+  Teacher.findOne({$or: [{email: req.body.email}, {username: req.body.username}, {code: req.body.code}]}, function(err, existingUser) {
     if (existingUser) {
       return res.status(409).send({
         message: 'Email is already taken'
