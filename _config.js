@@ -1,6 +1,6 @@
 var mongoURI = {
-  development: 'mongodb://localhost/write-smart',
-  test: 'mongodb://localhost/write-smart-test',
+  development: 'mongodb://localhost/write',
+  test: 'mongodb://localhost/write-test',
   production: process.env.MONGOLAB_URI
 };
 

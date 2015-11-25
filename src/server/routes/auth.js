@@ -196,6 +196,10 @@ router.post('/login', function(req, res){
               });
             }
           });
+        } else if (!user){
+          return res.status(401).send({
+            message: 'Cant find you!'
+          });
         }
       });
     }
