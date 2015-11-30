@@ -1,49 +1,73 @@
 <!DOCTYPE html>
 <html ng-app='myApp'>
 
-  <head>
+    <head>
 
-    <meta charset="utf-8">  <!-- it's important for d3.js -->
-    <title>Write Smart</title>
-    <!-- <link rel="stylesheet" href="../bower_components/nvd3/nv.d3.css"> -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/main.css">
-  </head>
-  <body>
-  <div class="container">
+        <meta charset="utf-8">  <!-- it's important for d3.js -->
+        <title>Write Smart</title>
+        <!-- <link rel="stylesheet" href="../bower_components/nvd3/nv.d3.css"> -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/style-responsive.css">
 
-    <h1>Write Smart</h1>
-    <p>Best. App. Ever</p>
 
-  <!-- Page Content -->
-    <div ng-view></div>
+    </head>
+    <body>
+        <div id="container" ng-class="{'sidebar-closed': toggleNav}">
+        <!-- <p id="test">TESTME</p> -->
+            <top-nav-bar></top-nav-bar>
+            <side-nav-bar></side-nav-bar>
 
-  </div>
-    <!-- Bower Components -->
-    <script src="../bower_components/angular/angular.js"></script>
-    <script src="../bower_components/angular-route/angular-route.js"></script>
-    <script src="../bower_components/d3/d3.js"></script>
-    <script src="../bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
-    <script src="../bower_components/nvd3/build/nv.d3.js"></script>
-    <script src="../bower_components/satellizer/satellizer.js"></script>
+<!--         <h1>Write Smart</h1>
+            <p>Best. App. Ever</p> -->
 
-    <!-- or use another assembly -->
-    <!-- // <script src="../bower_components/nvd3/nv.d3.js"></script> -->
+          <!-- Page Content -->
+            <div id="main-content">
+                <div class="angular-content">
+                    <div ng-view></div>
+                </div>
+            </div>
 
-    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <!-- // <script type="text/javascript" src="//cdn.jsdelivr.net/satellizer/0.12.5/satellizer.min.js"></script> -->
 
-    <!-- Angular JS Files -->
-    <script type="text/javascript" src="/js/app.js"></script>
 
-    <!-- JS Files -->
-    <script type="text/javascript" src="/js/main.js"></script>
 
-    <!-- Directives -->
-    <script type="text/javascript" src="../login/login-directive.js"></script>
-    <!-- // <script type="text/javascript" src="/student-login/student-login-directive.js"></script> -->
-    <script type="text/javascript" src="../teacher-signup/teacher-signup-directive.js"></script>
-    <script type="text/javascript" src="/student-signup/student-signup-directive.js"></script>
-  </body>
+
+
+
+        </div>
+
+
+        <!-- Bower Components -->
+        <script src="../bower_components/angular/angular.js"></script>
+        <script src="../bower_components/angular-route/angular-route.js"></script>
+        <script src="../bower_components/d3/d3.js"></script>
+        <script src="../bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
+        <script src="../bower_components/nvd3/build/nv.d3.js"></script>
+        <script src="../bower_components/satellizer/satellizer.js"></script>
+
+        <!-- or use another assembly -->
+        <!-- // <script src="../bower_components/nvd3/nv.d3.js"></script> -->
+
+        <!-- // <script type="text/javascript" src="//cdn.jsdelivr.net/satellizer/0.12.5/satellizer.min.js"></script> -->
+
+        <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+        <!-- Angular JS Files -->
+        <script type="text/javascript" src="/js/app.js"></script>
+
+        <!-- JS Files -->
+        <script type="text/javascript" src="/js/main.js"></script>
+
+        <!-- Directives -->
+        <script type="text/javascript" src="../login/login-directive.js"></script>
+        <!-- // <script type="text/javascript" src="/student-login/student-login-directive.js"></script> -->
+        <script type="text/javascript" src="../teacher-signup/teacher-signup-directive.js"></script>
+        <script type="text/javascript" src="/student-signup/student-signup-directive.js"></script>
+        <script type="text/javascript" src="/navigation/top-nav-bar-directive.js"></script>
+        <script type="text/javascript" src="/navigation/side-nav-bar-directive.js"></script>
+
+    </body>
 </html>

@@ -8,7 +8,8 @@ var Writing = new Schema({
   negativeWords: [String],
   positiveWordCount: Number,
   negativeWordCount: Number,
-  textWordCount: Number
+  textWordCount: Number,
+  comments: [String]
 });
 
 module.exports = mongoose.model('writings', Writing);

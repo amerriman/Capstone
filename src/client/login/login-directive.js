@@ -31,6 +31,7 @@ app.directive('login', function () {
             .then(function(response) {
               $window.localStorage.currentUser = JSON.stringify(response.data.user);
               $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+              console.log($rootScope.currentUser, "Root scope current user");
               console.log(response);
               $location.path('/home');
             })
@@ -42,6 +43,8 @@ app.directive('login', function () {
 
         $scope.isAuthenticated = function() {
             // console.log("HERE")
+          console.log($rootScope.currentUser, "Root scope current user in isAuthenticated");
+
           return $auth.isAuthenticated();
         };
 
@@ -50,10 +53,6 @@ app.directive('login', function () {
           delete $window.localStorage.currentUser;
           $location.path('/home');
         };
-
-
-
-
 
     }],
   };

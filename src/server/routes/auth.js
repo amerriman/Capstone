@@ -66,7 +66,8 @@ router.post('/signup', function(req, res) {
       username: req.body.name,
       email: req.body.email,
       password: req.body.password,
-      code: req.body.code
+      code: req.body.code,
+      teacher: true
     });
     user.save(function() {
       var token = createToken(user);
@@ -75,7 +76,7 @@ router.post('/signup', function(req, res) {
         user: user
       });
     });
-    console.log(user, "USER in the teacher login")
+    console.log(user, "USER in the teacher login");
   });
 });
 
@@ -84,7 +85,8 @@ router.post('/signup', function(req, res) {
 router.post('/register', function(req, res, next){
   var payload = {
     username:req.body.username,
-    password:req.body.password
+    password:req.body.password,
+    teacher: false
   };
   var query = {
     code: req.body.code
@@ -208,38 +210,7 @@ router.post('/login', function(req, res){
 });
 
 
-
-// *** student login route (username and password) *** //
-// router.post('/studentLogin', function(req, res) {
-//   Student.findOne({username: req.body.username}, '+password', function(err, user) {
-//     if (!user) {
-//       return res.status(401).send({
-//         message: {
-//           username: 'Incorrect username'
-//         }
-//       });
-//     }
-//     user.comparePassword(req.body.password, function(err, isMatch) {
-//       if (!isMatch) {
-//         return res.status(401).send({
-//           message: 'Wrong username and/or password'
-//         });
-//       }
-//       // console.log("MATCHED!!")
-//       user = user.toObject();
-//       delete user.password;
-//       var token = createToken(user);
-//       console.log(token, "TOKEN IN STUDENT LOGIN", user, "USER IN STUDENT LOGIN");
-//       res.send({
-//         token: token,
-//         user: user
-//       });
-//     });
-//   });
-// });
-
-
-
+// *** teacher update user route *** //
 router.put('/update', ensureAuthenticated, function(req, res) {
   Teacher.findOne({_id: req.body._id}, function(err, user) {
     if (!user) {

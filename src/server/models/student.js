@@ -13,6 +13,9 @@ var Student = new Schema({
     type: String,
     select: false
   },
+    teacher: {
+    type: Boolean
+  },
   writings: [{type: Schema.Types.ObjectId, ref: 'writings'}]
 });
 
