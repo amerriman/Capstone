@@ -1,4 +1,40 @@
-<!-- <div class="teacher-signup"> -->
+<div id="login-page">
+      <form class="form-login" method="post" ng-submit="signup()" name="teacherSignupForm">
+        <h2 class="form-login-heading">teacher sign-up</h2>
+        <div class="login-wrap">
+          <input class="form-control" type="text" name="name" ng-model="teacherSignup.name" placeholder="First and Last Name" required autofocus>
+            <br>
+          <input class="form-control" type="email" name="email" ng-model="teacherSignup.email" placeholder="Email" required>
+          <br>
+          <input class="form-control" type="password" name="password" ng-model="teacherSignup.password" placeholder="Password" required>
+          <br>
+          <input class="form-control" type="text" name="code" ng-model="teacherSignup.code" placeholder="Code" required>
+<!--             <label class="checkbox">
+                <span class="pull-right">
+                    <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
+
+                </span>
+            </label> -->
+            <br>
+            <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> SIGN UP</button>
+            <hr>
+
+  <!--           <div class="login-social-link centered">
+            <p>or you can sign-up via Google</p>
+                <button class="btn btn-google" ng-click="authenticate('google')"><i class="fa fa-google"></i> Google</button>
+            </div> -->
+            <div class="registration">
+                Need to sign up as a student?<br/>
+                <a class="" href="/#/">
+                    Create a student account
+                </a>
+            </div>
+
+        </div>
+      </form>
+</div>
+
+<!-- <div class="partial">
   <h1>Teacher Signup</h1>
   <form method="post" ng-submit="signup()" name="teacherSignupForm" >
 
@@ -20,7 +56,7 @@
 
     <button type="submit" class="btn btn-lg btn-block btn-primary">Sign Up!</button>
   </form>
-<!-- </div> -->
+</div> -->
 
 
 <!--

@@ -59,7 +59,7 @@ router.post('/signup', function(req, res) {
   Teacher.findOne({$or: [{email: req.body.email}, {username: req.body.username}, {code: req.body.code}]}, function(err, existingUser) {
     if (existingUser) {
       return res.status(409).send({
-        message: 'Email, username or code is already taken'
+        message: 'Email, name or code is already taken'
       });
     }
     var user = new Teacher({

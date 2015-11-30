@@ -40,6 +40,7 @@ a, a:hover, a:focus {
 #container {
     width: 100%;
     height: 100%;
+    padding-left: 0px;
 }
 
 /* Bootstrap Modifications */
@@ -213,6 +214,18 @@ hr {
 	background-color: #68dff0;
 }
 
+ul.top-menu > li > .login {
+    color: #f2f2f2;
+    font-size: 12px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border: 1px solid #64c3c2 !important;
+    padding: 5px 15px;
+    margin-right: 15px;
+    background: green;
+    margin-top: 15px;
+}
+
 ul.top-menu > li > .logout {
 	color: #f2f2f2;
 	font-size: 12px;
@@ -223,6 +236,18 @@ ul.top-menu > li > .logout {
 	margin-right: 15px;
 	background: #68dff0;
 	margin-top: 15px;
+}
+
+ul.top-menu > li > .register {
+    color: #f2f2f2;
+    font-size: 12px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border: 1px solid #64c3c2 !important;
+    padding: 5px 15px;
+    margin-right: 15px;
+    background: red;
+    margin-top: 15px;
 }
 
 
@@ -1956,6 +1981,9 @@ label {
 	margin-top: 20px;
 	margin-bottom: 15px;
 }
+#login-page{
+    padding-right: 5px;
+}
 
 
 /*LOCK SCREEN CONF*/
@@ -2024,6 +2052,21 @@ label {
   color: #fff;
   background-color: #2bb4e8;
   border-color: #2bb4e8;
+}
+
+.btn-google {
+  color: #fff;
+  background-color: red;
+  border-color: #2bb4e8;
+}
+.btn-google:hover,
+.btn-google:focus,
+.btn-google:active,
+.btn-google.active,
+.open .dropdown-toggle.btn-google {
+  color: #fff;
+  background-color: red;
+  border-color: red;
 }
 
 

@@ -9,4 +9,11 @@ a {
 
 .angular-content{
   padding-top: 60px;
+
+}
+
+.partial {
+  color: #797979;
+  background: #f2f2f2;
+  /*background-color: orange;*/
 }
