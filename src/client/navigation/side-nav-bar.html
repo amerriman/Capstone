@@ -1,12 +1,13 @@
 <div>
   <div id="sidebar"  class="nav-collapse">
-      <!-- sidebar menu start-->
-      <ul class="sidebar-menu" id="nav-accordion">
+      <!-- teacher sidebar menu start-->
+      <ul class="sidebar-menu" id="nav-accordion" ng-if='currentUser.teacher === true'>
 
           <p class="centered"><a href="profile.html"><img src="" class="img-circle" alt="profile pic" width="60"></a></p>
           <h5 class="centered">{{currentUser.username}}</h5>
 
-          <li class="mt">
+          <li class="sub-menu">
+          <!-- <li class="mt"> -->
               <a href="/#/">
                   <i class="fa fa-dashboard"></i>
                   <span>Dashboard</span>
@@ -35,6 +36,75 @@
           </li>
 
       </ul>
-      <!-- sidebar menu end-->
+      <!-- teacher sidebar menu end-->
+
+      <!-- student sidebar menu start-->
+      <ul class="sidebar-menu" id="nav-accordion" ng-if="currentUser.teacher === false">
+
+          <p class="centered"><a href="profile.html"><img src="" class="img-circle" alt="profile pic" width="60"></a></p>
+          <h5 class="centered">{{currentUser.username}}</h5>
+
+          <li class="sub-menu">
+          <!-- <li class="mt"> -->
+              <a href="/#/">
+                  <i class="fa fa-dashboard"></i>
+                  <span>Dashboard</span>
+              </a>
+          </li>
+
+          <li class="sub-menu">
+              <a href="" >
+                  <i class="fa fa-file-text"></i>
+                  <span>Writing</span>
+              </a>
+          </li>
+
+          <li class="sub-menu">
+              <a href="" >
+                  <i class="fa fa-cogs"></i>
+                  <span>Your Account</span>
+              </a>
+          </li>
+
+      </ul>
+      <!-- studentsidebar menu end-->
+
+      <!-- unauth sidebar menu start-->
+      <ul class="sidebar-menu" id="nav-accordion" ng-if="!isAuthenticated()">
+
+          <!-- <p class="centered"><a href="profile.html"><img src="" class="img-circle" alt="profile pic" width="60"></a></p> -->
+          <!-- <h5 class="centered" ng-if="isAuthenticated()">{{currentUser.username}}</h5> -->
+
+          <li class="sub-menu">
+          <!-- <li class="mt"> -->
+              <a href="/#/">
+                  <i class="fa fa-dashboard"></i>
+                  <span>Sample</span>
+              </a>
+          </li>
+
+          <li class="sub-menu">
+              <a href="" >
+                  <i class="fa fa-graduation-cap"></i>
+                  <span>Sample</span>
+              </a>
+          </li>
+
+          <li class="sub-menu">
+              <a href="" >
+                  <i class="fa fa-file-text"></i>
+                  <span>Sample</span>
+              </a>
+          </li>
+
+          <li class="sub-menu">
+              <a href="" >
+                  <i class="fa fa-cogs"></i>
+                  <span>Sample</span>
+              </a>
+          </li>
+
+      </ul>
+      <!-- unauth sidebar menu end-->
   </div>
 </div>

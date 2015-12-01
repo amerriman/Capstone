@@ -5,16 +5,17 @@
 
 
 
-$('#paragraph-submit').on('click', function(){
-  var text = $('#paragraph').val();
-  // console.log(text, "TEXTs");
-  //making a get request to server, and passing it the paragraph text - the data is the res.json(result) from the server side.
-  $.get('/analyze/'+ text, function(data){
-    // console.log(data[0]);
-    //make functions and call them in here with data as the parameters
-    sortSentiment(data);
-  });
-});
+// $('#paragraph-submit').on('click', function(){
+//   console.log("HERERERERERER");
+//   var text = $('#paragraph').val();
+//   // console.log(text, "TEXTs");
+//   //making a get request to server, and passing it the paragraph text - the data is the res.json(result) from the server side.
+//   $.get('/analyze/'+ text, function(data){
+//     // console.log(data[0]);
+//     //make functions and call them in here with data as the parameters
+//     sortSentiment(data);
+//   });
+// });
 
 // change this to just push the objects of pos or neg into a single array
 function sortSentiment(data){

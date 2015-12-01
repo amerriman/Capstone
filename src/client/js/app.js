@@ -30,6 +30,10 @@ app.config(['$routeProvider', '$authProvider', '$locationProvider', function($ro
       // controller: 'loginCtrl',
       access: {restricted: false}
     })
+    .when('/writing-analysis', {
+      templateUrl: 'partials/writingAnalysis.html',
+      access: {restricted: false}
+    })
     // .when('/home', {
     //   templateUrl: 'partials/home.html',
     //   // controller: 'signupCtrl',

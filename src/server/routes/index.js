@@ -14,7 +14,7 @@ router.get('/analyze/:text', function(req, res){
   // console.log(paragraph, "PARAGRAPH")
   request({
     method: 'POST',
-    url: 'http://gateway-a.watsonplatform.net/calls/text/TextGetRankedKeywords?text='+paragraph+'&apikey='+process.env.KEY+'&outputMode=json&sentiment=1&showSourceText=1'
+    url: 'http://gateway-a.watsonplatform.net/calls/text/TextGetRankedKeywords?text='+paragraph+'&apikey='+process.env.WATSON_KEY+'&outputMode=json&sentiment=1&showSourceText=1'
   }, function(err, response){
     if(err){
       console.log('err', err);
