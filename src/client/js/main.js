@@ -16,30 +16,34 @@
 //     sortSentiment(data);
 //   });
 // });
+var coloredParagraph = "";
 
-// change this to just push the objects of pos or neg into a single array
-function sortSentiment(data){
-  var textS = $('#paragraph').val();
-  var positiveWords = [];
-  var negativeWords = [];
-  for (var i = 0; i < data.length; i++) {
-    if(data[i].sentiment.type === "positive"){
-      positiveWords.push(data[i].text);
-    } else if (data[i].sentiment.type === "negative"){
-      negativeWords.push(data[i].text);
-    }
-  }
-  var positive = positiveWords.join(' ').split(' ');
-  var negative = negativeWords.join(' ').split(' ');
-   postParagraph(positive, negative);
-   return positive, negative;
-}
+// change this to just push the objects of pos or neg into a single array - moved to angular directive
+// function sortSentiment(data){
+//   var textS = $('#paragraph').val();
+//   // console.log(textS, 'text S');
+//   var positiveWords = [];
+//   var negativeWords = [];
+//   for (var i = 0; i < data.length; i++) {
+//     if(data[i].sentiment.type === "positive"){
+//       positiveWords.push(data[i].text);
+//     } else if (data[i].sentiment.type === "negative"){
+//       negativeWords.push(data[i].text);
+//     }
+//   }
+//   var positive = positiveWords.join(' ').split(' ');
+//   var negative = negativeWords.join(' ').split(' ');
+//   // console.log(positive, "positive", negative, "negative")
+//    postParagraph(positive, negative);
+//    return positive, negative;
+// }
+
 
 //Oh man - must refactor....
 function postParagraph(posArray, negArray){
   var text = $('#paragraph').val();
   var textCopy = text.split(/\W+/);
-  var coloredParagraph = "";
+  // var coloredParagraph = "";
   // var index;
   var count = 0;
   //loop through the text, and each time assign index to the tC[i], and make sure count is reset at 0
@@ -78,18 +82,14 @@ function postParagraph(posArray, negArray){
       }
     }
   }
-  // console.log(coloredParagraph, "Out");
-  $('#result-paragraph').append(coloredParagraph);
+  return coloredParagraph;
+  // $('#result-paragraph').append(coloredParagraph);
 }
 
+function writingData(){
 
+}
 
-
-
-
-
-
-//What to do about punctuation?
 
 
 // x[0].sentiment.type

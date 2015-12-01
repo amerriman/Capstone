@@ -222,7 +222,7 @@ ul.top-menu > li > .login {
     border: 1px solid #64c3c2 !important;
     padding: 5px 15px;
     margin-right: 15px;
-    background: green;
+    background: #48cfad;
     margin-top: 15px;
 }
 
@@ -234,9 +234,10 @@ ul.top-menu > li > .logout {
 	border: 1px solid #64c3c2 !important;
 	padding: 5px 15px;
 	margin-right: 15px;
-	background: #68dff0;
+	background: #ed5565;
 	margin-top: 15px;
 }
+
 
 ul.top-menu > li > .register {
     color: #f2f2f2;
@@ -246,7 +247,7 @@ ul.top-menu > li > .register {
     border: 1px solid #64c3c2 !important;
     padding: 5px 15px;
     margin-right: 15px;
-    background: red;
+    background: #68dff0;
     margin-top: 15px;
 }
 

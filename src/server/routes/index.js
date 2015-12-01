@@ -24,7 +24,7 @@ router.get('/analyze/:text', function(req, res){
       var result = JSON.parse(response.body).keywords;
       // console.log(response.body);
       // console.log(response.body.status, "STATUS");
-      console.log(result, "RESULT");
+      // console.log(result, "RESULT");
       res.json(result);
       // res.render('index', {keywords: result[0].text});
       // res.send(result);

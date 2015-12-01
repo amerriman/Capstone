@@ -7,13 +7,20 @@
       <br>
       <div class="form-group">
         <label for="paragraph">Paste your paragraph below:</label>
-        <textarea class="form-control" rows="10" id="paragraph" ng-model='text'></textarea>
+        <textarea class="form-control" rows="10" id="paragraph" ng-model='writingInput'></textarea>
         <br>
         <button type="submit" class="btn btn-primary" id="paragraph-submit" ng-click='getText()'>Submit</button>
       </div>
 
-      <div id="result-paragraph">
       <h4>Your paragraph:</h4>
+      <div id="result-paragraph">
+
+      </div>
+
+      <div id="add">
+        <input type="text" class="form-control" name="title" ng-model="writingSample.title" placeholder="Title" required>
+        <br>
+        <button class="btn btn-theme btn-block" type="button" ng-click="saveWriting()">Save the Writing!</button>
       </div>
 
 

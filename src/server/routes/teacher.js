@@ -38,8 +38,10 @@ router.post('/teacher/:id/writings', function(req, res, next){
     negativeWords: req.body.negativeWords,
     positiveWordCount: req.body.positiveWordCount,
     negativeWordCount: req.body.negativeWordCount,
-    textWordCount: req.body.textWordCount
+    textWordCount: req.body.textWordCount,
+    comments: req.body.comments
   });
+  console.log(newWriting, "newWriting")
   newWriting.save(function(err, writing){
     if(err){
       res.json({'message': err});
