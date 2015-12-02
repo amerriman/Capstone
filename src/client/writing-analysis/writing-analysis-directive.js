@@ -2,7 +2,11 @@ app.directive('writingAnalysis', function() {
   return {
     restrict: 'E',
     templateUrl: '/writing-analysis/writing-analysis.html',
-    controller: ['$rootScope', '$scope', '$http', '$location', 'httpFactory', function($rootScope, $scope, $http, $location, httpFactory){
+    controller: ['$rootScope', '$scope', '$http', '$auth', '$location', 'httpFactory', function ($rootScope, $scope, $http, $auth, $location, httpFactory){
+
+      $scope.isAuthenticated = function() {
+        return $auth.isAuthenticated();
+      };
 
       $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 

@@ -17,7 +17,7 @@
 
       </div>
 
-      <div id="add">
+      <div id="add" ng-if="isAuthenticated()">
         <input type="text" class="form-control" name="title" ng-model="writingSample.title" placeholder="Title" required>
         <br>
         <button class="btn btn-theme btn-block" type="button" ng-click="saveWriting()">Save the Writing!</button>

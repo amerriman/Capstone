@@ -9,12 +9,18 @@ var Student = new Schema({
     type: String,
     unique: true
   },
+  userImage:{
+    type: String
+  },
   password: {
     type: String,
     select: false
   },
-    teacher: {
+  teacher: {
     type: Boolean
+  },
+  section: {
+    type: String
   },
   writings: [{type: Schema.Types.ObjectId, ref: 'writings'}]
 });

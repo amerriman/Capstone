@@ -24,6 +24,9 @@ var Teacher = new Schema({
     type: String,
     unique: true
   },
+  userImage:{
+    type: String
+  },
   code: {
     type: String,
     unique: true

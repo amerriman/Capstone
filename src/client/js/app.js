@@ -34,6 +34,22 @@ app.config(['$routeProvider', '$authProvider', '$locationProvider', function($ro
       templateUrl: 'partials/writingAnalysis.html',
       access: {restricted: false}
     })
+    .when('/all-students', {
+      templateUrl: 'partials/allStudents.html',
+      access: {restricted: true}
+    })
+    .when('/student/:id', {
+      templateUrl: 'partials/singleStudent.html',
+      access: {restricted: true}
+    })
+    .when('/all-writing', {
+      templateUrl: 'partials/allWriting.html',
+      access: {restricted: true}
+    })
+    .when('/writing/:id', {
+      templateUrl: 'partials/singleWriting.html',
+      access: {restricted: true}
+    })
     // .when('/home', {
     //   templateUrl: 'partials/home.html',
     //   // controller: 'signupCtrl',

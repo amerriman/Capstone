@@ -10,7 +10,8 @@ app.directive('studentSignup', function () {
         var student = {
           username: $scope.studentSignup.username,
           password: $scope.studentSignup.password,
-          code: $scope.studentSignup.code
+          code: $scope.studentSignup.code,
+          section: $scope.studentSignup.section,
         };
 
       $http.post('/auth/register', student)

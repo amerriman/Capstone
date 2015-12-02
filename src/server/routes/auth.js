@@ -86,7 +86,9 @@ router.post('/register', function(req, res, next){
   var payload = {
     username:req.body.username,
     password:req.body.password,
-    teacher: false
+    teacher: false,
+    section: req.body.section,
+    userImage: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSZK8F2vAEhdfNUnR_9bFQQtj7IuyGK2YZ7N7KXXZ17FZS_Lc9A"
   };
   var query = {
     code: req.body.code
@@ -277,6 +279,7 @@ router.post('/google', function(req, res) {
             user.email = profile.email;
             user.username = profile.name;
             user.code = profile.name;
+            user.teacher = true;
             user.save(function() {
               var token = createToken(user);
               res.send({
@@ -288,24 +291,25 @@ router.post('/google', function(req, res) {
         });
       } else {
         // Step 3b. Create a new user account or return an existing one.
-        Teacher.findOne({ googleProfileID: profile.sub }, function(err, existingUser) {
+        Teacher.findOne({ email: profile.email }, function(err, existingUser) {
           if (existingUser) {
             return res.send({
-              token: createToken(existingUser)
+              token: createToken(existingUser),
+              user: existingUser
             });
           }
-          var user = new Teacher();
-          user.googleProfileID = profile.sub;
-          user.email = profile.email;
-          user.username = profile.name;
-          user.code = profile.name;
-          user.save(function(err) {
-            var token = createToken(user);
-            res.send({
-              token: token,
-              user: user
-            });
-          });
+          // var user = new Teacher();
+          // user.googleProfileID = profile.sub;
+          // user.email = profile.email;
+          // user.username = profile.name;
+          // user.code = profile.name;
+          // user.save(function(err) {
+          //   var token = createToken(user);
+          //   res.send({
+          //     token: token,
+          //     user: user
+          //   });
+          // });
         });
       }
     });
