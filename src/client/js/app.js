@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngRoute', 'satellizer']);
+var app = angular.module('myApp', ['ngRoute', 'satellizer', 'nvd3']);
 
 app.config(['$routeProvider', '$authProvider', '$locationProvider', function($routeProvider, $authProvider, $locationProvider) {
 
@@ -49,6 +49,10 @@ app.config(['$routeProvider', '$authProvider', '$locationProvider', function($ro
     .when('/writing/:id', {
       templateUrl: 'partials/singleWriting.html',
       access: {restricted: true}
+    })
+    .when('/dashboard', {
+      templateUrl: 'partials/dashboard.html',
+      access: {restricted: false}
     })
     // .when('/home', {
     //   templateUrl: 'partials/home.html',

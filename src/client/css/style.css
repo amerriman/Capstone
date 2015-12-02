@@ -255,7 +255,7 @@ ul.top-menu > li > .register {
 /*sidebar navigation*/
 
 #sidebar {
-    width: 210px;
+    width: 195px;
     height: 100%;
     position: fixed;
     background: #424a5d;
@@ -264,6 +264,11 @@ ul.top-menu > li > .register {
 #sidebar h5 {
 	color: #f2f2f2;
 	font-weight: 700;
+}
+
+#sidebar h4 {
+    color: #f2f2f2;
+    font-weight: 700;
 }
 
 #sidebar ul li {
@@ -380,7 +385,7 @@ ul.sidebar-menu li a{
     text-decoration: none;
     display: block;
     padding: 15px 0 15px 10px;
-    font-size: 12px;
+    font-size: 14px;
     outline: none;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -785,7 +790,9 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 
 .sidebar-closed #sidebar {
     margin-left: -210px;
+    display: none;
 }
+
 
 
 

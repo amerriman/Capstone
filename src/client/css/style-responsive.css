@@ -100,6 +100,14 @@
         border-right: 15px solid transparent;
     }
 
+    .wrapper {
+        margin-top: 360px;
+    }
+
+    .sidebar-closed .wrapper {
+        margin-top: 20px;
+        margin-left: 0px;
+    }
 
     /*---------*/
 

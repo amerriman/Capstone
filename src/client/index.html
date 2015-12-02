@@ -4,8 +4,10 @@
     <head>
 
         <meta charset="utf-8">  <!-- it's important for d3.js -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <title>Write Smart</title>
-        <!-- <link rel="stylesheet" href="../bower_components/nvd3/nv.d3.css"> -->
+        <link rel="stylesheet" href="../bower_components/nvd3/build/nv.d3.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="/css/main.css">
@@ -15,7 +17,8 @@
 
     </head>
     <body>
-        <div ng-class="{'sidebar-closed': toggleNav}">
+        <section id="container" ng-class="{'sidebar-closed': toggleNav}">
+        <div >
         <!-- <p id="test">TESTME</p> -->
             <top-nav-bar></top-nav-bar>
             <side-nav-bar></side-nav-bar>
@@ -25,18 +28,14 @@
 
           <!-- Page Content -->
             <div id="main-content">
-                <div class="angular-content">
-                    <div ng-view></div>
+                <div class="angular-content wrapper">
+                    <div ng-view ></div>
                 </div>
             </div>
 
-
-
-
-
-
-
         </div>
+        </section>
+
 
 
         <!-- Bower Components -->
@@ -75,6 +74,9 @@
         <script type="text/javascript" src="/writing/all-writing-directive.js"></script>
         <script type="text/javascript" src="/writing/single-writing-directive.js"></script>
         <script type="text/javascript" src="/students/single-student-directive.js"></script>
+        <script type="text/javascript" src="/dashboard/dashboard-directive.js"></script>
+        <script type="text/javascript" src="/charts/teacher-pie-dash-directive.js"></script>
+        <script type="text/javascript" src="/charts/teacher-multibar-dash-directive.js"></script>
 
 
 

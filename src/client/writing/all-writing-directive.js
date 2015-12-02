@@ -38,6 +38,19 @@ app.directive('allWriting', function() {
 
       getWriting();
 
+      $scope.deleteWriting = function(id){
+        // alert('are you sure?');
+        var writingId = id;
+        console.log(id, "ID");
+        httpFactory.delete('/writing/sample/' + writingId)
+        .then(function(response){
+          console.log(response, "RESPNSE");
+          getWriting()
+        });
+      };
+
+
+
 
 
     }]
