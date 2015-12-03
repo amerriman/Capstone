@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var Writing = require('../models/writing');
+var Teacher = require('../models/teacher');
+var Student = require('../models/student');
 
 //***  get all writings - working - ***//
 router.get('/samples', function(req, res, next) {
@@ -46,6 +48,7 @@ router.post('/samples', function(req, res, next) {
 });
 
 //***  delete a writing from the database ***//
+
 router.delete('/sample/:id', function (req, res, next) {
   Writing.findByIdAndRemove(req.params.id, function (err, data) {
     if (err) {
@@ -55,5 +58,8 @@ router.delete('/sample/:id', function (req, res, next) {
     }
   });
 });
+
+
+
 
 module.exports = router;

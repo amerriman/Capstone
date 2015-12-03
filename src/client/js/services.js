@@ -19,5 +19,9 @@ app.factory('httpFactory', ['$http', function($http){
     return $http.put(url, payload);
   };
 
+  obj.putRemove = function(url){
+    return $http.put(url);
+  };
+
   return obj;
 }]);

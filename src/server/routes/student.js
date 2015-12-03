@@ -57,6 +57,24 @@ router.post('/student/:id/writings', function(req, res, next){
   });
 });
 
+// *** remove single writing from student ***//
+router.put('/student/:id/:wid', function(req, res) {
+  var student = req.params.id;
+  var writing = req.params.wid;
+
+  var remove = {$pull: {"writings": writing}};
+  var options = {new: true, upsert: true};
+  Student.findByIdAndUpdate(student, remove, options, function(err, data){
+    if (err){
+      console.log(err);
+      res.send({'message':err});
+        } else {
+      console.log(data);
+      res.send(data);
+        }
+});
+});
+
 
 //***  get all writings from one student ***//
 router.get('/student/:id/writings', function(req, res, next){

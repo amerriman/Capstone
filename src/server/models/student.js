@@ -1,8 +1,11 @@
 var mongoose = require('mongoose-q')(require('mongoose'));
 var Schema = mongoose.Schema;
+
 var bcrypt = require('bcryptjs');
 //this might not be right
 var config = require ('../../../_config.js');
+var deepPopulate = require("mongoose-deep-populate")(mongoose);
+
 
 var Student = new Schema({
   username: {
@@ -53,6 +56,9 @@ Student.methods.comparePassword = function(password, done) {
     done(err, isMatch);
   });
 };
+
+Student.plugin(deepPopulate);
+
 
 module.exports = mongoose.model('students', Student);
 

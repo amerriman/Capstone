@@ -10,22 +10,14 @@ app.directive('allWriting', function() {
 
       $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-      // getWriting = function(){
-      //   httpFactory.get('/teaUser/teacher/'+ $rootScope.currentUser._id +'/writings')
-      //   .then(function(response){
-      //     console.log(response.data.success);
-      //     $scope.writings = response.data.success;
-      //     console.log($scope.writings);
-      //   });
-      // };
 
       getWriting = function(){
         if($rootScope.currentUser.teacher === true){
           httpFactory.get('/teaUser/teacher/'+ $rootScope.currentUser._id +'/writings')
             .then(function(response){
-              console.log(response.data.success);
+              // console.log(response.data.success, "response data success");
               $scope.writings = response.data.success;
-              console.log($scope.writings);
+              // console.log($scope.writings);
             });
         } else if($rootScope.currentUser.teacher === false){
           httpFactory.get('/stUser/student/' + $rootScope.currentUser._id + '/writings')
@@ -33,21 +25,50 @@ app.directive('allWriting', function() {
               $scope.writings = response.data.success;
               console.log($scope.writings);
             });
-        };
+        }
       };
 
       getWriting();
 
+
       $scope.deleteWriting = function(id){
         // alert('are you sure?');
+        var userID = $rootScope.currentUser._id;
         var writingId = id;
+        console.log(writingId, "writingid");
         console.log(id, "ID");
         httpFactory.delete('/writing/sample/' + writingId)
         .then(function(response){
-          console.log(response, "RESPNSE");
-          getWriting()
+          console.log(response, "RESPONSE");
+        httpFactory.putRemove('/teaUser/teacher/' +userID + "/" +writingId)
+        .then(function(response2){
+          console.log("HERE")
+          console.log(response2, "response2");
+
         });
+          getWriting();
+        });
+
       };
+
+
+
+      // *** remove single writing from teacher ***// sort of working
+// router.put('/teacher/:id/:wid', function(req, res) {
+//   var teacher = req.params.id;
+//   var writing = req.params.wid;
+
+//   var remove = {$pull: {"writings": writing}};
+//   var options = {new: true, upsert: true};
+//   Teacher.findByIdAndUpdate(teacher, remove, options, function(err, data){
+//     if (err){
+//       console.log(err);
+//         } else {
+//       console.log(data);
+//       res.send(data);
+//         }
+// });
+// });
 
 
 

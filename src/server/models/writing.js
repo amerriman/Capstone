@@ -1,4 +1,6 @@
 var mongoose = require('mongoose-q')(require('mongoose'));
+var deepPopulate = require("mongoose-deep-populate")(mongoose);
+
 var Schema = mongoose.Schema;
 
 var Writing = new Schema({
@@ -11,6 +13,8 @@ var Writing = new Schema({
   textWordCount: Number,
   comments: [String]
 });
+
+Writing.plugin(deepPopulate);
 
 module.exports = mongoose.model('writings', Writing);
 
