@@ -23,7 +23,7 @@ app.directive('allWriting', function() {
           httpFactory.get('/stUser/student/' + $rootScope.currentUser._id + '/writings')
             .then(function(response){
               $scope.writings = response.data.success;
-              console.log($scope.writings);
+              // console.log($scope.writings);
             });
         }
       };
@@ -42,33 +42,29 @@ app.directive('allWriting', function() {
           console.log(response, "RESPONSE");
         httpFactory.putRemove('/teaUser/teacher/' +userID + "/" +writingId)
         .then(function(response2){
-          console.log("HERE")
-          console.log(response2, "response2");
-
+          // console.log("HERE")
+          // console.log(response2, "response2");
         });
           getWriting();
         });
-
       };
 
 
+      $scope.editTitle = function(newTitle, id){
+        // console.log(newTitle, id)
+        var writingId = id;
+        var payload = {
+          'title': newTitle
+        };
+        // console.log(payload)
+        httpFactory.put('/writing/sample/'+ writingId, payload)
+        .then(function(response){
+          getWriting();
+          // console.log(response, "RESPNSE");
+        });
+      };
 
-      // *** remove single writing from teacher ***// sort of working
-// router.put('/teacher/:id/:wid', function(req, res) {
-//   var teacher = req.params.id;
-//   var writing = req.params.wid;
 
-//   var remove = {$pull: {"writings": writing}};
-//   var options = {new: true, upsert: true};
-//   Teacher.findByIdAndUpdate(teacher, remove, options, function(err, data){
-//     if (err){
-//       console.log(err);
-//         } else {
-//       console.log(data);
-//       res.send(data);
-//         }
-// });
-// });
 
 
 

@@ -26,6 +26,23 @@ router.get('/sample/:id', function(req, res, next) {
   });
 });
 
+
+//*** edit one writing ***//
+router.put('/sample/:id', function(req, res) {
+  var query = {"_id": req.params.id};
+  var update = {title : req.body.title};
+  // console.log(update, "UPDATE");
+  var options = {new: true};
+  Writing.findOneAndUpdate(query, update, options, function(err, data){
+    if(err){
+      res.json({'message': err});
+    } else{
+      res.json(data);
+    }
+  });
+});
+
+
 //***  add new writing(only to database, not to a user) - working ADMIN ONLY ***//
 router.post('/samples', function(req, res, next) {
   newWriting = new Writing({

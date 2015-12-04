@@ -75,6 +75,20 @@ router.put('/student/:id/:wid', function(req, res) {
 });
 });
 
+//*** Update student section ***//
+router.put('/student/:id', function(req, res){
+  var query = {"_id": req.params.id};
+  var update = {section: req.body.section};
+  var options = {new:true};
+  Student.findOneAndUpdate(query, update, options, function(err, data){
+    if(err){
+      res.json({'message': err});
+    } else{
+      res.json(data);
+    }
+  });
+});
+
 
 //***  get all writings from one student ***//
 router.get('/student/:id/writings', function(req, res, next){
@@ -91,6 +105,16 @@ router.get('/student/:id/writings', function(req, res, next){
 });
 
 
+//***  get all writings from one student ***//
+router.delete('/student/:id', function(req, res, next){
+  Student.findByIdAndRemove(req.params.id, function (err, data) {
+    if (err) {
+      res.json ({'message': err});
+    } else {
+      res.json({'REMOVED' :data});
+    }
+  });
+});
 
 
 

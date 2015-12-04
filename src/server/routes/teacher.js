@@ -142,7 +142,7 @@ router.put('/teacher/:id/:wid', function(req, res) {
   var writing = req.params.wid;
 
   var remove = {$pull: {"writings": writing}};
-  var options = {new: true, upsert: true};
+  var options = {new: true, upsert: false};
   Teacher.findByIdAndUpdate(teacher, remove, options, function(err, data){
     if (err){
       console.log(err);
@@ -160,7 +160,7 @@ router.put('/teacher/:id/students/:sid', function(req, res) {
   var student = req.params.sid;
 
   var remove = {$pull: {"students": student}};
-  var options = {new: true, upsert: true};
+  var options = {new: true, upsert: false};
   Teacher.findByIdAndUpdate(teacher, remove, options, function(err, data){
     if (err){
       console.log(err);
@@ -169,7 +169,7 @@ router.put('/teacher/:id/students/:sid', function(req, res) {
       console.log(data);
       res.send(data);
         }
-});
+  });
 });
 
 

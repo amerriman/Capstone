@@ -204,6 +204,10 @@ a, a:hover, a:focus {
 	margin: 0 !important;
 }
 
+.confirm-buttons {
+    margin-top: 10px;
+}
+
 /*Exclusive Theme Colors Configuration*/
 
 .label-theme {

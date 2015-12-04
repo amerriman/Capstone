@@ -1,4 +1,68 @@
-This is the super awesome dashboard
+<!-- Teacher user view -->
+<div ng-if="isAuthenticated() && currentUser.teacher === true">
+  <div class="row mt">
+    <div class="col col-md-6">
+      <div class="row">
+        <div class="col col-md-6">
+          <div class="content-panel">
+          Number of students
+          </div>
+        </div>
+        <div class="col col-md-6">
+          <div class="content-panel">
+          Number of student writing samples
+          </div>
+        </div>
+      </div>
+      <div class="row mt">
+        <div class="col col-md-6">
+          <div class="content-panel">
+          Number of your writing samples
+          </div>
+        </div>
+        <div class="col col-md-6">
+          <div class="content-panel">
+          Some other kind of thing...
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col col-md-6">
+      <div class="content-panel">
+      # of writing samples per student
+        <teacher-pie-dash></teacher-pie-dash>
+      </div>
+    </div>
+  </div>
+  <div class="row mt">
+    <div class="col col-md-12">
+      <div class="content-panel">
+        <teacher-multibar-dash></teacher-multibar-dash>
+      </div>
+    </div>
+  </div>
 
-<teacher-pie-dash></teacher-pie-dash>
-<teacher-multibar-dash></teacher-multibar-dash>
+</div> <!-- end outer div with ifAuth -->
+
+
+
+
+
+<!-- Student user view -->
+<div ng-if="isAuthenticated() && currentUser.teacher === false">
+  <div class="row mt">
+    <div class="col col-md-6">
+      <div class="content-panel">
+        <student-pie-dash></student-pie-dash>
+      </div>
+    </div>
+    <div class="col col-md-6">
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- If you can see ONLY this, you are not authenticated! -->

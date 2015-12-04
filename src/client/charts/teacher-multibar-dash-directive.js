@@ -197,7 +197,7 @@ app.directive('teacherMultibarDash', function () {
                 for (var j = 0; j < data[i].writings.length; j++) {
                     words += data[i].writings[j].textWordCount;
                     pwords += data[i].writings[j].positiveWordCount;
-                    nwords += data[i].writings[j].negativeWordCount
+                    nwords += data[i].writings[j].negativeWordCount;
                     if(j === data[i].writings.length-1){
                         littleData.push(name, words, pwords, nwords);
                     }
@@ -211,7 +211,7 @@ app.directive('teacherMultibarDash', function () {
 
 
         makeStreamData = function(data){
-            var streams = []
+            var streams = [];
             var stream0Data = [];
             for (var i = 0; i < data.length; i++) {
                 stream0Data[i] = {};
@@ -256,44 +256,12 @@ app.directive('teacherMultibarDash', function () {
             return streams;
         };
 
-        // makeStream1Data = function(data){
-        //     var stream1Data = [];
-        //     for (var i = 0; i < data.length; i++) {
-        //         stream1Data[i] = {};
-        //         stream1Data[i].key = "Positive Keywords";
-        //         stream1Data[i].series = 1;
-        //         stream1Data[i].size = data[i][2];
-        //         stream1Data[i].x = data[i][0];
-        //         stream1Data[i].y = data[i][2];
-        //         stream1Data[i].y0 = data[i][1];
-        //         stream1Data[i].y1 = data[i][1]+data[i][2];
-        //         stream1Data[i].color = "green";
-        //     }
-        //     console.log(stream1Data, 'stream1Data');
-        //     return stream1Data;
-        // };
 
-        // makeStream2Data = function(data){
-        //     var stream2Data = [];
-        //     for (var i = 0; i < data.length; i++) {
-        //         stream2Data[i] = {};
-        //         stream2Data[i].key = "Negative Keywords";
-        //         stream2Data[i].series = 2;
-        //         stream2Data[i].size = data[i][3];
-        //         stream2Data[i].x = data[i][0];
-        //         stream2Data[i].y = data[i][3];
-        //         stream2Data[i].y0 = data[i][1]+data[i][2];
-        //         stream2Data[i].y1 = data[i][2] + data[i][2] + data[i][3];
-        //         stream2Data[i].color = "red";
-        //     }
-        //     console.log(stream2Data, 'stream2Data');
-        //     return stream2Data;
-        // };
 
 
         makeChartData = function(keys, colors, streams){
             var chartData = [];
-            console.log(streams, "streams in make chart data")
+            // console.log(streams, "streams in make chart data")
             //create main 3 objects
             for (var i = 0; i < 3; i++) {
                 chartData[i] = {};
@@ -304,7 +272,7 @@ app.directive('teacherMultibarDash', function () {
                 chartData[i].values = streams[i];
             }
 
-            console.log(chartData, "chartData");
+            // console.log(chartData, "chartData");
             $scope.multibarData = chartData;
             return chartData;
         };

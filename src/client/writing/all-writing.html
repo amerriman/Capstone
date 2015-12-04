@@ -1,5 +1,5 @@
 <!-- <section id="main-content"> -->
-  <section class="wrapper">
+  <!-- <section class="wrapper"> -->
     <div class="row mt">
         <div class="col-md-12">
             <div class="content-panel">
@@ -16,14 +16,36 @@
                     </thead>
                     <tbody ng-repeat="writing in writings">
                     <tr>
-                        <td><a ng-href="/#/writing/{{writing._id}}">{{writing.title}}</a></td>
+
+                        <td><a ng-href="/#/writing/{{writing._id}}">{{writing.title}}</a>
+
+                            <form ng-model="editTitle" class="form-inline repeat-animation hide-fade" ng-show="editForm" name="form">
+                                <div class="form-group">
+                                    <!-- <label for="classText">Class</label> -->
+                                    <input name="writingTitle" ng-model="writingTitle" type="text" class="form-control input-sm" placeholder={{writing.title}}>
+                                </div>
+                                <button ng-click="editTitle(writingTitle, writing._id); editForm = ! editForm" type="submit" class="btn btn-default btn-sm">Edit Title</button>
+                            </form>
+
+
+                        </td>
                         <td>{{writing.textWordCount}}</td>
                         <td>{{writing.negativeWordCount + writing.positiveWordCount}}</td>
 
-                        <td>
-                            <!-- <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button> -->
-                            <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                            <button class="btn btn-danger btn-xs" ng-click="deleteWriting(writing._id)"><i class="fa fa-trash-o "></i></button>
+                        <td class="centered">
+                            <div ng-show="confirm">
+                                <button class="btn btn-primary btn-xs"><span ng-click="editForm = !editForm"><i class="fa fa-pencil"></i></span></button>
+                                <button class="btn btn-danger btn-xs" ng-click="deleteButtons = ! deleteButtons"><i class="fa fa-trash-o "></i></button>
+                            </div>
+                            <div ng-show="deleteButtons" class="form-inline repeat-animation hide-fade confirm-buttons">
+                                <!-- <p>Are you sure?</p> -->
+                                <button ng-click="deleteButtons = ! deleteButtons" type="button" class="btn btn-default btn-sm">Cancel</button>
+                                <button ng-click="deleteWriting(writing._id); deleteButtons = ! deleteButtons" type="button" class="btn btn-default btn-sm">DELETE</button>
+                       <!--      <div class="alert alert-danger" role="alert" ng-model="deleteAlert" ng-show="deleteAlert">
+
+
+                            </div> -->
+
                         </td>
                     </tr>
                     </tbody>
@@ -31,6 +53,6 @@
             </div><!-- /content-panel -->
         </div><!-- /col-md-12 -->
     </div><!-- /row -->
-  </section>
+  <!-- </section> -->
 <!-- </section> -->
 

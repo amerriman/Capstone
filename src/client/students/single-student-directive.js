@@ -1,7 +1,7 @@
-app.directive('singleStudents', function() {
+app.directive('singleStudent', function() {
   return {
     restrict: 'E',
-    templateUrl: '/students/single-students.html',
+    templateUrl: '/students/single-student.html',
     controller: ['$rootScope', '$scope', '$http', '$auth', '$location', 'httpFactory', function ($rootScope, $scope, $http, $auth, $location, httpFactory){
 
       $scope.isAuthenticated = function() {

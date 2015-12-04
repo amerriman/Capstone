@@ -18,7 +18,7 @@ app.directive('login', function () {
               console.log(response);
               $window.localStorage.currentUser = JSON.stringify(response.data.user);
               $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-              $location.path('/home');
+              $location.path('/dashboard');
             })
             .catch(function(response) {
               console.log(response);
@@ -33,7 +33,7 @@ app.directive('login', function () {
               $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
               console.log($rootScope.currentUser, "Root scope current user");
               console.log(response);
-              $location.path('/home');
+              $location.path('/dashboard');
             })
           .catch(function(response) {
             console.log(response);
