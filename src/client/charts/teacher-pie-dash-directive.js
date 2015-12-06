@@ -16,21 +16,21 @@ app.directive('teacherPieDash', function () {
         $scope.pieOptions = {
             chart: {
                 type: 'pieChart',
-                height: 500,
+                height: 270,
                 x: function(d){return d.key;},
                 y: function(d){return d.y;},
                 showLabels: true,
                 duration: 500,
                 labelThreshold: 0.01,
-                labelSunbeamLayout: true,
-                color: ['red','orange', 'yellow', 'green', 'purple'],
+                labelSunbeamLayout: false,
+                color: ['#F68275','#00C5DE', '#F0AD4E', '#AC92EC', '#34495E'],
                 legend: {
                     key: 'sample',
                     margin: {
                         top: 5,
-                        right: 35,
+                        right: 5,
                         bottom: 5,
-                        left: 0
+                        left: 5
                     }
                 }
             }
@@ -106,7 +106,7 @@ app.directive('teacherPieDash', function () {
         getData = function(){
             httpFactory.get('/teaUser/teacher/'+ $rootScope.currentUser._id +'/students')
             .then(function(response){
-                var studentData = response.data.success;
+                var studentData = response.data.success.students;
                 // console.log(studentData, "studentData");
                 countWriting(studentData);
             });

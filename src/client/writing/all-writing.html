@@ -33,7 +33,7 @@
                         <td>{{writing.negativeWordCount + writing.positiveWordCount}}</td>
 
                         <td class="centered">
-                            <div ng-show="confirm">
+                            <div ng-show="!deleteButtons" class="form-inline repeat-animation hide-fade confirm-buttons">
                                 <button class="btn btn-primary btn-xs"><span ng-click="editForm = !editForm"><i class="fa fa-pencil"></i></span></button>
                                 <button class="btn btn-danger btn-xs" ng-click="deleteButtons = ! deleteButtons"><i class="fa fa-trash-o "></i></button>
                             </div>
@@ -41,12 +41,10 @@
                                 <!-- <p>Are you sure?</p> -->
                                 <button ng-click="deleteButtons = ! deleteButtons" type="button" class="btn btn-default btn-sm">Cancel</button>
                                 <button ng-click="deleteWriting(writing._id); deleteButtons = ! deleteButtons" type="button" class="btn btn-default btn-sm">DELETE</button>
-                       <!--      <div class="alert alert-danger" role="alert" ng-model="deleteAlert" ng-show="deleteAlert">
-
-
-                            </div> -->
 
                         </td>
+
+
                     </tr>
                     </tbody>
                 </table>

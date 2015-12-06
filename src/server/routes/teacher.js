@@ -73,7 +73,7 @@ router.get('/teacher/:id/writings', function(req, res, next){
       res.json({'message':err});
     }
     else{
-      res.json({"success":teacher.writings});
+      res.json({"success":teacher});
     }
   });
 });
@@ -88,7 +88,7 @@ router.get('/teacher/:id/students', function(req, res, next){
       res.json({'message':err});
     }
     else{
-      res.json({"success" : teacher.students});
+      res.json({"success" : teacher});
     }
   });
 });

@@ -1,3 +1,9 @@
+<!-- <select ng-model="sort" class="form-control">
+    <option value="-votes">Votes</option>
+    <option value="date">Date</option>
+    <option value="title">Title</option>
+</select> -->
+
 <!-- <section id="main-content"> -->
   <!-- <section class="wrapper"> -->
     <div class="row mt">
@@ -35,9 +41,11 @@
                             </form>
                         </td>
                         <td>
-                            <button class="btn btn-primary btn-xs"><span ng-click="editForm = !editForm"><i class="fa fa-pencil"></i></span></button>
-                            <button class="btn btn-danger btn-xs" ng-click="deleteButtons = ! deleteButtons"><i class="fa fa-trash-o "></i></button>
-                            <br>
+                            <div div ng-show="!deleteButtons" class="form-inline repeat-animation hide-fade confirm-buttons">
+                                <button class="btn btn-primary btn-xs"><span ng-click="editForm = !editForm"><i class="fa fa-pencil"></i></span></button>
+                                <button class="btn btn-danger btn-xs" ng-click="deleteButtons = ! deleteButtons"><i class="fa fa-trash-o "></i></button>
+                                <br>
+                            </div>
 
                             <div ng-show="deleteButtons" class="form-inline repeat-animation hide-fade confirm-buttons">
                                 <!-- <p>Are you sure?</p> -->

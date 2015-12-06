@@ -15,7 +15,7 @@ app.directive('allStudents', function() {
         httpFactory.get('/teaUser/teacher/'+ $rootScope.currentUser._id +'/students')
         .then(function(response){
           // console.log(response.data.success[0].writings.length);
-          $scope.students = response.data.success;
+          $scope.students = response.data.success.students;
           // console.log($scope.students)
         });
       };

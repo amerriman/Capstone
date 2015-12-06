@@ -282,15 +282,15 @@ describe('Teachers', function() {
         res.should.have.status(200);
         res.should.be.json;
         // console.log(res.body.success[0], "resbody")
-        res.body.success.should.be.a('array');
-        res.body.success[0].should.have.property('text');
-        res.body.success[0].should.have.property('title');
-        res.body.success[0].should.have.property('negativeWordCount');
-        res.body.success[0].should.have.property('positiveWords');
-        res.body.success[0].text.should.equal('Sally sells seashells by the seashore alone in the dark');
-        res.body.success[0].title.should.equal('Super Title');
-        res.body.success[0].negativeWords.should.be.a('array');
-        res.body.success[0].positiveWords[0].should.equal('seashells');
+        res.body.success.writings.should.be.a('array');
+        res.body.success.writings[0].should.have.property('text');
+        res.body.success.writings[0].should.have.property('title');
+        res.body.success.writings[0].should.have.property('negativeWordCount');
+        res.body.success.writings[0].should.have.property('positiveWords');
+        res.body.success.writings[0].text.should.equal('Sally sells seashells by the seashore alone in the dark');
+        res.body.success.writings[0].title.should.equal('Super Title');
+        res.body.success.writings[0].negativeWords.should.be.a('array');
+        res.body.success.writings[0].positiveWords[0].should.equal('seashells');
         done();
       });
     });
@@ -337,8 +337,8 @@ describe('Teachers', function() {
               // console.log(res3.body, 'res3.body');
                 res3.should.have.status(200);
                 res3.should.be.json;
-                res3.body.success.should.be.a('array');
-                res3.body.success.length.should.equal(0);
+                res3.body.success.writings.should.be.a('array');
+                res3.body.success.writings.length.should.equal(0);
                 done();
               });
             });
@@ -380,12 +380,13 @@ describe('Teachers', function() {
       .end(function(err, res){
         res.should.have.status(200);
         res.should.be.json;
-        res.body.success.should.be.a('array');
-        res.body.success[0].should.have.property('username');
-        res.body.success[0].should.have.property('writings');
-        res.body.success[0].username.should.equal('Some Kid');
-        res.body.success[0].writings.should.be.a('array');
-        res.body.success[0].writings.length.should.equal(0);
+        console.log(res.body.success.students)
+        res.body.success.students.should.be.a('array');
+        res.body.success.students[0].should.have.property('username');
+        res.body.success.students[0].should.have.property('writings');
+        res.body.success.students[0].username.should.equal('Some Kid');
+        res.body.success.students[0].writings.should.be.a('array');
+        res.body.success.students[0].writings.length.should.equal(0);
         done();
       });
     });

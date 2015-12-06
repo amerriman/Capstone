@@ -16,17 +16,18 @@ app.directive('allWriting', function() {
           httpFactory.get('/teaUser/teacher/'+ $rootScope.currentUser._id +'/writings')
             .then(function(response){
               // console.log(response.data.success, "response data success");
-              $scope.writings = response.data.success;
+              $scope.writings = response.data.success.writings;
               // console.log($scope.writings);
             });
         } else if($rootScope.currentUser.teacher === false){
           httpFactory.get('/stUser/student/' + $rootScope.currentUser._id + '/writings')
             .then(function(response){
-              $scope.writings = response.data.success;
-              // console.log($scope.writings);
+              $scope.writings = response.data.success.writings;
+              console.log($scope.writings, "scope.writings");
             });
         }
       };
+
 
       getWriting();
 

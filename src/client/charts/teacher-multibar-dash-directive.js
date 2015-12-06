@@ -171,7 +171,7 @@ app.directive('teacherMultibarDash', function () {
 
 
         var keys = ["Total Words", "Positive Keywords", "Negative Keywords"];
-        var colors = ['blue', 'green', 'red'];
+        var colors = ['#68DFF0', '#37BC9B', '#DA4453'];
 
         getStudentData = function(){
             httpFactory.get('/teaUser/teacher/'+ $rootScope.currentUser._id +'/all')
@@ -222,7 +222,7 @@ app.directive('teacherMultibarDash', function () {
                 stream0Data[i].y = data[i][1];
                 stream0Data[i].y0 = 0;
                 stream0Data[i].y1 = data[i][1];
-                stream0Data[i].color = "blue";
+                stream0Data[i].color = "#68DFF0";
             }
 
             var stream1Data = [];
@@ -235,7 +235,7 @@ app.directive('teacherMultibarDash', function () {
                 stream1Data[i].y = data[i][2];
                 stream1Data[i].y0 = data[i][1];
                 stream1Data[i].y1 = data[i][1]+data[i][2];
-                stream1Data[i].color = "green";
+                stream1Data[i].color = "#37BC9B";
             }
 
             var stream2Data = [];
@@ -248,7 +248,7 @@ app.directive('teacherMultibarDash', function () {
                 stream2Data[i].y = data[i][3];
                 stream2Data[i].y0 = data[i][1]+data[i][2];
                 stream2Data[i].y1 = data[i][2] + data[i][2] + data[i][3];
-                stream2Data[i].color = "red";
+                stream2Data[i].color = "#DA4453";
             }
             streams.push(stream0Data, stream1Data, stream2Data);
             console.log(streams, 'streams');

@@ -227,17 +227,17 @@ describe('Student', function() {
       .end(function(err, res){
         res.should.have.status(200);
         res.should.be.json;
-        // console.log(res.body.success.length, "resbody")
-        res.body.success.should.be.a('array');
-        res.body.success.length.should.equal(2);
-        res.body.success[0].should.have.property('text');
-        res.body.success[0].should.have.property('title');
-        res.body.success[1].should.have.property('negativeWordCount');
-        res.body.success[1].should.have.property('positiveWords');
-        res.body.success[0].text.should.equal('Someday there will be an ugly rainbow on the moon');
-        res.body.success[0].title.should.equal('Some Title');
-        res.body.success[0].negativeWords.should.be.a('array');
-        res.body.success[0].positiveWords[0].should.equal('rainbow');
+        // console.log(res.body.success.writings, "resbody")
+        res.body.success.writings.should.be.a('array');
+        res.body.success.writings.length.should.equal(2);
+        res.body.success.writings[0].should.have.property('text');
+        res.body.success.writings[0].should.have.property('title');
+        res.body.success.writings[1].should.have.property('negativeWordCount');
+        res.body.success.writings[1].should.have.property('positiveWords');
+        res.body.success.writings[0].text.should.equal('Someday there will be an ugly rainbow on the moon');
+        res.body.success.writings[0].title.should.equal('Some Title');
+        res.body.success.writings[0].negativeWords.should.be.a('array');
+        res.body.success.writings[0].positiveWords[0].should.equal('rainbow');
         done();
       });
     });
@@ -293,15 +293,15 @@ describe('Student', function() {
       .get('/stUser/student/' + id + '/writings')
       .end(function(err, res){
       // assign a variable to the first one in the writings array
-        var wID = res.body.success[0]._id;
-        // console.log(wID, "wID");
+        var wID = res.body.success.writings[0]._id;
+        console.log(wID, "wID");
 
         chai.request(server)
         .get('/writing/sample/' + wID)
         .end(function(err, res){
           res.should.have.status(200);
           res.should.be.json;
-          // console.log(res.body, "resbody")
+          console.log( "HERE")
           res.body.should.be.a('object');
           res.body.should.have.property('text');
           res.body.should.have.property('title');
@@ -358,8 +358,8 @@ describe('Student', function() {
               // console.log(res3.body, 'res3.body');
                 res3.should.have.status(200);
                 res3.should.be.json;
-                res3.body.success.should.be.a('array');
-                res3.body.success.length.should.equal(0);
+                res3.body.success.writings.should.be.a('array');
+                res3.body.success.writings.length.should.equal(0);
                 done();
               });
             });

@@ -99,7 +99,7 @@ router.get('/student/:id/writings', function(req, res, next){
       res.json({'message':err});
     }
     else{
-      res.json({"success":student.writings});
+      res.json({"success":student});
     }
   });
 });

@@ -208,6 +208,10 @@ a, a:hover, a:focus {
     margin-top: 10px;
 }
 
+.dash-stats {
+    font-size: 45px;
+}
+
 /*Exclusive Theme Colors Configuration*/
 
 .label-theme {
@@ -1023,14 +1027,19 @@ PANELS CONFIGURATIONS
 /*Panel Size*/
 
 .pn {
-	height: 250px;
+	height: 300px;
 	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+    margin-bottom: 25px;
 }
 
 .pn:hover {
 	box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.3);
 
 }
+
+/*.panel-title {
+    color: #424A5D;
+}*/
 
 /*Grey Panel*/
 
@@ -1095,10 +1104,13 @@ PANELS CONFIGURATIONS
 	text-align: center;
 	background: #68dff0;
 }
-.green-panel .green-header {
+/*.green-panel */
+
+.green-header {
 	background: #43b1a9;
 	padding: 3px;
 	margin-bottom: 15px;
+    color: #424A5D;
 }
 .green-panel h5 {
 	color: white;
@@ -1355,49 +1367,7 @@ PANELS CONFIGURATIONS
 	border-radius: 100%;
 }
 
-/* Soptify Panel */
-#spotify {
-	background: url(../img/lorde.jpg) no-repeat center top;
-	margin-top: -15px;
-	background-attachment: relative;
-	background-position: center center;
-	min-height: 220px;
-	width: 100%;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-#spotify .btn-clear-g {
-	top: 15%;
-	right: 10px;
-	position: absolute;
-	margin-top: 5px;
-}
-#spotify .sp-title {
-	bottom: 15%;
-	left: 25px;
-	position: absolute;
-	color: #efefef;
-}
-#spotify .sp-title h3 {
-	font-weight: 900;
-}
-#spotify .play{
-	bottom: 18%;
-	right: 25px;
-	position: absolute;
-	color: #efefef;
-	font-size: 20px
-}
-.followers {
-	margin-left: 5px;
-	margin-top: 5px;
-}
+
 
 /* BLOG PANEL */
 #blog-bg {
