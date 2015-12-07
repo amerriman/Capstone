@@ -7,11 +7,38 @@
 
   <div class="top-menu">
     <ul class="nav pull-right top-menu">
+      <li ng-if="!isAuthenticated()">
+        <div class="btn-group">
+          <button type="button" class="btn btn-theme dropdown-toggle" data-toggle="dropdown">
+            Register<span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#/teacher-signup">I'm a Teacher</a></li>
+            <!-- <li><a href="#">Another action</a></li> -->
+            <!-- <li><a href="#">Something else here</a></li> -->
+            <li class="divider"></li>
+            <li><a href="#/student-signup">I'm a Student</a></li>
+          </ul>
+        </div>
+      </li>
       <li ng-if="!isAuthenticated()"><a class="login" href="#/login" role="button">Login</a></li>
-      <li ng-if="!isAuthenticated()"><a class="register" href="#/teacher-signup" role="button">Teacher Sign Up</a></li>
-      <li ng-if="!isAuthenticated()"><a class="register" href="#/student-signup" role="button">Student Sign Up</a></li>
+      <!-- <li ng-if="!isAuthenticated()"><a class="register" href="#/teacher-signup" role="button">Teacher Sign Up</a></li> -->
+      <!-- <li ng-if="!isAuthenticated()"><a class="register" href="#/student-signup" role="button">Student Sign Up</a></li> -->
+
       <li ng-if="isAuthenticated()"><a class="logout" role="button" ng-click="logout()">Logout</a></li>
     </ul>
   </div>
 </header>
 
+            <div class="btn-group">
+              <button type="button" class="btn btn-theme dropdown-toggle" data-toggle="dropdown">
+                Action <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </div>

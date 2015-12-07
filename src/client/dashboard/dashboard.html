@@ -50,8 +50,92 @@
 
 <!-- Student user view -->
 <div ng-if="isAuthenticated() && currentUser.teacher === false">
+<div class="row mt">
+    <div class="col-md-8">
+        <div class="content-panel">
+            <table class="table table-striped table-advance table-hover">
+              <h1>  <img ng-src="{{currentUser.userImage}}" alt="Student"  class="studentImage" height='50px' width='50px'>   {{currentUser.username}}</h1>
+              <hr>
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Word Count</th>
+                    <th>Key Words</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody ng-repeat="writing in writings">
+                <tr>
 
-  <div class="row mt">
+                    <td><a ng-href="/#/writing/{{writing._id}}">{{writing.title}}</a>
+
+                        <form ng-model="editTitle" class="form-inline repeat-animation hide-fade" ng-show="editForm" name="form">
+                            <div class="form-group">
+                                <!-- <label for="classText">Class</label> -->
+                                <input name="writingTitle" ng-model="writingTitle" type="text" class="form-control input-sm" placeholder={{writing.title}}>
+                            </div>
+                            <button ng-click="editTitle(writingTitle, writing._id); editForm = ! editForm" type="submit" class="btn btn-default btn-sm btn-edit">Edit Title</button>
+                            <button ng-click="editForm = ! editForm" type="button" class="btn btn-default btn-sm btn-cancel">Cancel</button>
+
+                        </form>
+
+
+                    </td>
+                    <td>{{writing.textWordCount}}</td>
+                    <td>{{writing.negativeWordCount + writing.positiveWordCount}}</td>
+
+                    <td class="centered">
+                        <div ng-show="!deleteButtons" class="form-inline repeat-animation hide-fade confirm-buttons">
+                            <button class="btn btn-primary btn-xs"><span ng-click="editForm = !editForm"><i class="fa fa-pencil"></i></span></button>
+                            <button class="btn btn-danger btn-xs" ng-click="deleteButtons = ! deleteButtons"><i class="fa fa-trash-o "></i></button>
+                        </div>
+                        <div ng-show="deleteButtons" class="form-inline repeat-animation hide-fade confirm-buttons">
+                            <!-- <p>Are you sure?</p> -->
+                            <button ng-click="deleteButtons = ! deleteButtons" type="button" class="btn btn-default btn-sm btn-cancel">Cancel</button>
+                            <button ng-click="deleteWriting(writing._id); deleteButtons = ! deleteButtons" type="button" class="btn btn-default btn-sm btn-delete">DELETE</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div><!-- /content-panel -->
+    </div><!-- /col-md-12 -->
+
+    <div class="col col-md-4">
+
+      <div class="grey-panel pn">
+        <div class="green-header">
+          <h4>Positive vs. Negative Tone</h4>
+        </div>
+        <student-pie-dash></student-pie-dash>
+      </div>
+
+      <div class="row mt">
+
+        <div class="col col-md-6">
+          <div class="grey-panel pn-ss">
+            <div class="green-header">
+              <h4>Writing Samples</h4>
+            </div>
+            <p class="ss-stats-a centered"><i class="fa fa-chevron-circle-right"></i>      {{writings.length}}</p>
+          </div>
+        </div>
+
+        <div class="col col-md-6">
+          <div class="grey-panel pn-ss">
+            <div class="green-header">
+              <h4>Total Words</h4>
+            </div>
+            <p class="ss-stats-b centered"><i class="fa fa-trophy"></i>      {{total}}</p>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+</div>
+
+<!--   <div class="row mt">
 
     <div class="col col-md-4">
       <div class="grey-panel pn">
@@ -80,9 +164,9 @@
       </div>
     </div>
 
-  </div>
+  </div> -->
 
-  <div class="row mt">
+ <!--  <div class="row mt">
       <div class="col-md-12">
           <div class="content-panel">
               <table class="table table-striped table-advance table-hover">
@@ -103,7 +187,6 @@
 
                           <form ng-model="editTitle" class="form-inline repeat-animation hide-fade" ng-show="editForm" name="form">
                               <div class="form-group">
-                                  <!-- <label for="classText">Class</label> -->
                                   <input name="writingTitle" ng-model="writingTitle" type="text" class="form-control input-sm" placeholder={{writing.title}}>
                               </div>
                               <button ng-click="editTitle(writingTitle, writing._id); editForm = ! editForm" type="submit" class="btn btn-default btn-sm btn-edit">Edit Title</button>
@@ -121,16 +204,16 @@
                               <button class="btn btn-danger btn-xs" ng-click="deleteButtons = ! deleteButtons"><i class="fa fa-trash-o "></i></button>
                           </div>
                           <div ng-show="deleteButtons" class="form-inline repeat-animation hide-fade confirm-buttons">
-                              <!-- <p>Are you sure?</p> -->
+
                               <button ng-click="deleteButtons = ! deleteButtons" type="button" class="btn btn-default btn-sm btn-cancel">Cancel</button>
                               <button ng-click="deleteWriting(writing._id); deleteButtons = ! deleteButtons" type="button" class="btn btn-default btn-sm btn-delete">DELETE</button>
                       </td>
                   </tr>
                   </tbody>
-              </table>
-          </div><!-- /content-panel -->
-      </div><!-- /col-md-12 -->
-  </div><!-- /row -->
+              </table> -->
+          <!-- </div> --><!-- /content-panel -->
+      <!-- </div> --><!-- /col-md-12 -->
+ <!--  </div> --><!-- /row -->
 
 
 </div>

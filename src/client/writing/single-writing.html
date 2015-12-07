@@ -12,23 +12,43 @@
 </div>
 
 <div class="row mt">
-  <div class="col col-md-4">
-    <div class="grey-panel pn">
+
+  <div class="col col-md-3">
+    <div class="grey-panel pn sw">
       <div class="green-header">
-        <h4>Word Count</h4>
+        <h5>Word Count</h5>
       </div>
-      <p class="dash-stats-a centered"><i class="fa fa-chevron-circle-right"></i>      {{writing.textWordCount}}</p>
+      <p class="sw-stats-a centered"><i class="fa fa-chevron-circle-right"></i>      {{writing.textWordCount}}</p>
     </div>
   </div>
 
-  <div class="col col-md-4">
-    <div class="grey-panel pn">
+  <div class="col col-md-3">
+    <div class="grey-panel pn sw">
       <div class="green-header">
-        <h4>Positive v Negative Keywords</h4>
+        <h5>Positive Keywords</h5>
       </div>
-      <p class="dash-stats-b centered"><i class="fa fa-trophy"></i>      {{writing.positiveWordCount}}</p>
+      <p class="sw-stats-b centered"><i class="fa fa-arrow-circle-o-up"></i>      {{writing.positiveWordCount}}</p>
     </div>
   </div>
+
+  <div class="col col-md-3">
+    <div class="grey-panel pn sw">
+      <div class="green-header">
+        <h5>Negative Keywords</h5>
+      </div>
+      <p class="sw-stats-c centered"><i class="fa fa-arrow-circle-o-down"></i>      {{writing.positiveWordCount}}</p>
+    </div>
+  </div>
+
+  <div class="col col-md-3">
+    <div class="grey-panel pn sw">
+      <div class="green-header">
+        <h5>Comments</h5>
+      </div>
+      <p class="sw-stats-d centered"><i class="fa fa-comments-o"></i>      {{writing.comments.length}}</p>
+    </div>
+  </div>
+
 </div>
 
 

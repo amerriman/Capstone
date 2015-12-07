@@ -247,13 +247,13 @@
     #top_menu .nav > li, ul.top-menu > li {
         float: right;
     }
-    .hidden-phone {
+/*    .hidden-phone {
         display: none !important;
     }
 
     .chart-position {
        margin-top: 0px;
-     }
+     }*/
 
     .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
         background-color: #ccc;
@@ -274,7 +274,7 @@
     #top_menu .nav > li, ul.top-menu > li {
         float: right;
     }
-
+/*
     .hidden-phone {
         display: none !important;
     }
@@ -289,7 +289,7 @@
     }
     .lock-input {
         width: 82%;
-    }
+    }*/
 
     .cmt-form {
         display: inline-block;

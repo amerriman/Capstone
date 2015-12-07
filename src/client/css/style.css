@@ -88,6 +88,9 @@ a, a:hover, a:focus {
   color: #fff;
   background-color: #68dff0;
   border-color: #48bcb4;
+  font-size: 12px;
+  margin-top: 14px;
+  margin-right: 10px;
 }
 .btn-theme:hover,
 .btn-theme:focus,
@@ -211,16 +214,47 @@ a, a:hover, a:focus {
     margin-top: 17%;
     color: #6191C0;
 }
-
 .dash-stats-b {
     font-size: 100px;
     margin-top: 17%;
-    color: #E9C264
+    color: #E9C264;
 }
 .dash-stats-c {
     font-size: 100px;
     margin-top: 17%;
     color: #6191C0;
+}
+.sw-stats-a {
+    font-size: 65px;
+    color: #6191C0;
+}
+.sw-stats-b {
+    font-size: 65px;
+    color: #48BCB4
+}
+.sw-stats-c {
+    font-size: 65px;
+    color: #ed5565;
+}
+.sw-stats-d {
+    font-size: 65px;
+    color: #E9C264;
+}
+.ss-stats-a {
+    font-size: 40px;
+    color: #6191C0;
+}
+.ss-stats-b {
+    font-size: 40px;
+    color: #48BCB4
+}
+.ss-stats-c {
+    font-size: 40px;
+    color: #ed5565;
+}
+.ss-stats-d {
+    font-size: 40px;
+    color: #E9C264;
 }
 .btn-edit{
     color: #f2f2f2;;
@@ -1069,9 +1103,20 @@ PANELS CONFIGURATIONS
     margin-bottom: 25px;
 }
 
+.sw{
+    height: 170px;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+    margin-bottom: 25px;
+}
+
+.pn-ss{
+    height: 150px;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+    margin-bottom: 25px;
+}
+
 .pn:hover {
 	box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.3);
-
 }
 
 /*.panel-title {
