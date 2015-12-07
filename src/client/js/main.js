@@ -18,6 +18,7 @@ function postParagraph(posArray, negArray){
       //if there's a match, add the word to the new paragraph
       if(textCopy[i]===posArray[j]){
         coloredParagraph += " " + '<span class="green">' +posArray[j].toUpperCase()+'</span>';
+          break;
       } else {
       // if there's not a match, increment the counter
         count ++;
@@ -29,6 +30,7 @@ function postParagraph(posArray, negArray){
             //if there's a match, add the word to the new p
             if(textCopy[i]===negArray[k]){
               coloredParagraph += " " + '<span class="red">' + negArray[k].toUpperCase()+'</span>';
+                break;
             } else {
             //if no match, increment the counter
               count++;

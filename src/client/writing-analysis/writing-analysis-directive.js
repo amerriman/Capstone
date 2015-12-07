@@ -14,6 +14,7 @@ app.directive('writingAnalysis', function() {
 
       $scope.writingSample = {};
 
+
       //sorts the keywords into postive and negative chuncks
       sortSentiment = function(data){
         $scope.writingSample.textWordCount = $scope.writingInput.split(' ').length;
@@ -27,6 +28,7 @@ app.directive('writingAnalysis', function() {
             $scope.writingSample.negativeWords.push(data[i].text);
           }
         }
+
         // console.log($scope.positiveWords, 'positiveWords');
         $scope.writingSample.positiveWordCount = $scope.writingSample.positiveWords.length;
         $scope.writingSample.negativeWordCount = $scope.writingSample.negativeWords.length;
@@ -34,6 +36,7 @@ app.directive('writingAnalysis', function() {
         var positive = $scope.writingSample.positiveWords.join(' ').split(' ');
         var negative = $scope.writingSample.negativeWords.join(' ').split(' ');
         //in main.js - reconstructs the writing sample
+
         postParagraph(positive, negative);
         return positive, negative;
       };

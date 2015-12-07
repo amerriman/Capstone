@@ -1,12 +1,35 @@
-This will be a single writing page...
 
 <div class="row mt">
-  <div class="col col-md-6 col-md-offset-3">
+  <div class="col col-md-12">
     <div class="content-panel">
       <div class="centered">
-
         <h1>{{writing.title}}</h1>
+        <hr>
       </div>
+      <p id="writing-sample"></p>
     </div>
   </div>
 </div>
+
+<div class="row mt">
+  <div class="col col-md-4">
+    <div class="grey-panel pn">
+      <div class="green-header">
+        <h4>Word Count</h4>
+      </div>
+      <p class="dash-stats-a centered"><i class="fa fa-chevron-circle-right"></i>      {{writing.textWordCount}}</p>
+    </div>
+  </div>
+
+  <div class="col col-md-4">
+    <div class="grey-panel pn">
+      <div class="green-header">
+        <h4>Positive v Negative Keywords</h4>
+      </div>
+      <p class="dash-stats-b centered"><i class="fa fa-trophy"></i>      {{writing.positiveWordCount}}</p>
+    </div>
+  </div>
+</div>
+
+
+

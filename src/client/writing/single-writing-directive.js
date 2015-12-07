@@ -12,6 +12,10 @@ app.directive('singleWriting', function() {
 
       var id = $routeParams.id;
 
+      appendText = function(text) {
+        var myEl = angular.element( document.querySelector( '#writing-sample' ) );
+        myEl.append(text);
+      };
 
       getWriting = function(id){
         httpFactory.get('/writing/sample/'+ id)
@@ -19,6 +23,7 @@ app.directive('singleWriting', function() {
           console.log(response)
           $scope.writing = response.data;
           console.log($scope.writing);
+          appendText($scope.writing.text)
         });
       };
 

@@ -24,7 +24,7 @@ app.directive('studentPieDash', function () {
                 duration: 500,
                 labelThreshold: 0.01,
                 labelSunbeamLayout: false,
-                color: ['green','red', 'blue'],
+                color: ['#F68275', '#34495E'],
                 legend: {
                     key: 'sample',
                     margin: {

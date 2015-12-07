@@ -23,7 +23,7 @@ app.directive('dashboard', function() {
           httpFactory.get('/stUser/student/' + $rootScope.currentUser._id + '/writings')
             .then(function(response){
               $scope.writings = response.data.success.writings;
-              // console.log($scope.writings);
+              console.log($scope.writings, "boo");
               wordCount($scope.writings);
 
             });

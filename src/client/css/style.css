@@ -1,13 +1,7 @@
-/*
-Template Name: DASHGUM FREE - Bootstrap 3.2 Admin Theme
-Template Version: 1.0
-Author: Carlos Alvarez
-Website: http://blacktie.co
-Premium: http://www.gridgum.com
-*/
+
 
 /* Import fonts */
-@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
+/*@import url(//fonts.googleapis.com/css?family=Ruda:400,700,900);*/
 
 /* BASIC THEME CONFIGURATION */
 body {
@@ -69,7 +63,6 @@ a, a:hover, a:focus {
 	outline: none !important;
 	text-decoration: none;
 }
-
 
 
 /*Theme Backgrounds*/
@@ -203,15 +196,59 @@ a, a:hover, a:focus {
 .no-margin {
 	margin: 0 !important;
 }
-
+.green{
+    color:#48BCB4;
+}
+.red {
+    color:#ed5565;
+}
 .confirm-buttons {
     margin-top: 10px;
 }
 
-.dash-stats {
-    font-size: 45px;
+.dash-stats-a {
+    font-size: 100px;
+    margin-top: 17%;
+    color: #6191C0;
 }
 
+.dash-stats-b {
+    font-size: 100px;
+    margin-top: 17%;
+    color: #E9C264
+}
+.dash-stats-c {
+    font-size: 100px;
+    margin-top: 17%;
+    color: #6191C0;
+}
+.btn-edit{
+    color: #f2f2f2;;
+    background-color: #68dff0;
+}
+.btn-edit, .btn-edit:hover, .btn-edit:focus {
+    color: #f2f2f2;;
+    background-color: #68dff0;
+}
+.btn-cancel {
+    color: #f2f2f2;
+    background-color: #48BCB4;
+}
+.btn-cancel, .btn-cancel:hover, .btn-cancel:focus {
+    color: #f2f2f2;
+    background-color: #48BCB4;
+}
+.btn-delete {
+    color: #f2f2f2;
+    background-color: #ed5565;
+}
+.btn-delete, .btn-delete:hover, .btn-delete:focus {
+    color: #f2f2f2;
+    background-color: #ed5565;
+}
+#writing-sample {
+    font-size: 16px;
+}
 /*Exclusive Theme Colors Configuration*/
 
 .label-theme {
@@ -1166,7 +1203,7 @@ PANELS CONFIGURATIONS
 }
 .stock .stock-chart #chart {
     height: 10.7em;
-    background: url(http://i.imgbox.com/abmuNQx2) center bottom no-repeat;
+    background: url(//i.imgbox.com/abmuNQx2) center bottom no-repeat;
 }
 .stock .current-price {
   background: #1d2122;
