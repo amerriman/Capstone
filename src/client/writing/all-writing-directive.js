@@ -10,6 +10,8 @@ app.directive('allWriting', function() {
 
       $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
+      $scope.sortType = "title";
+      $scope.sortReverse  = false;
 
       getWriting = function(){
         if($rootScope.currentUser.teacher === true){

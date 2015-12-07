@@ -12,6 +12,11 @@ app.directive('singleWriting', function() {
 
       var id = $routeParams.id;
 
+      $scope.reloadRoute = function() {
+          // $route.reload();
+        $window.location.reload();
+      };
+
       appendText = function(text) {
         var myEl = angular.element( document.querySelector( '#writing-sample' ) );
         myEl.append(text);
@@ -20,14 +25,30 @@ app.directive('singleWriting', function() {
       getWriting = function(id){
         httpFactory.get('/writing/sample/'+ id)
         .then(function(response){
-          console.log(response)
+          // console.log(response)
           $scope.writing = response.data;
-          console.log($scope.writing);
-          appendText($scope.writing.text)
+          $scope.comments = (response.data.comments);
+          // console.log($scope.comments, "comments");
+          appendText($scope.writing.text);
         });
       };
 
-      getWriting(id)
+      getWriting(id);
+
+      $scope.addComment = function(things){
+        $scope.comment = $scope.commentForm;
+        var payload = {
+          'comments': $scope.commentForm
+        };
+        // console.log("yolo", $scope.comment, payload, id);
+        httpFactory.put('/writing/sample/'+ id +'/comment', payload)
+        .then(function(response){
+          // console.log(response.data, "RESPONSE>DATA");
+          reloadRoute();
+        })
+
+
+      };
 
 
     }]

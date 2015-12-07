@@ -10,6 +10,8 @@ app.directive('allStudents', function() {
 
       $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
+      $scope.sortType = "username";
+      $scope.sortReverse  = false;
 
       getStudents = function(){
         httpFactory.get('/teaUser/teacher/'+ $rootScope.currentUser._id +'/students')

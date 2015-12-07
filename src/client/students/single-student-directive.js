@@ -12,6 +12,8 @@ app.directive('singleStudent', function() {
 
       var id = $routeParams.id;
 
+      $scope.sortType = "title";
+      $scope.sortReverse = false;
 
 
       getWriting = function(){

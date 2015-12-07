@@ -251,7 +251,7 @@ app.directive('teacherMultibarDash', function () {
                 stream2Data[i].color = "#DA4453";
             }
             streams.push(stream0Data, stream1Data, stream2Data);
-            console.log(streams, 'streams');
+            // console.log(streams, 'streams');
             makeChartData(keys, colors, streams);
             return streams;
         };

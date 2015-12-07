@@ -16,13 +16,13 @@
                     <tr>
                         <th></th>
                         <!-- <th>Cute</th> -->
-                        <th>Name</th>
-                        <th># of Writing Samples</th>
-                        <th>Class</th>
+                        <th ng-click="sortType = 'username';sortReverse = !sortReverse">Name<i class="fa fa-arrows-v icon-space"></i></th>
+                        <th ng-click="sortType = 'writings.length';sortReverse = !sortReverse"># of Writing Samples<i class="fa fa-arrows-v icon-space"></i></th>
+                        <th ng-click="sortType = 'section';sortReverse = !sortReverse">Class<i class="fa fa-arrows-v icon-space"></i></th>
                         <th></th>
                     </tr>
                     </thead>
-                    <tbody ng-repeat="student in students">
+                    <tbody ng-repeat="student in students | orderBy:sortType:sortReverse">
                     <tr>
 
 <!-- <a ng-href="/#/writing/{{writing._id}}">{{writing.title}}</a> -->

@@ -11,14 +11,50 @@
   </div>
 </div>
 
+<div class="row mt" ng-show="comment">
+  <div class="col col-md-12">
+    <div class="grey-panel pn comments">
+      <div class="salmon-header">
+        <h4>Say Something</h4>
+      </div>
+      <form name="commentF" class="form-inline">
+        <textarea class="form-control comment-box" rows="2" ng-model='commentForm' placeholder="Comment..." required></textarea>
+        <button type="submit" class="btn btn-comment" id="comment-submit" ng-click='addComment(); comment = ! comment' ng-disabled="commentF.$invalid">Add Comment!</button>
+        <button type="submit" class="btn btn-comment"  ng-click='comment = ! comment'>Cancel</button>
+
+      </form>
+      <br>
+      <div class="" ng-repeat="comment in comments">
+        <p class="show-comment"><i class="fa fa-commenting"></i>  {{comment}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="row mt">
+
+  <div class="col col-md-3 pointer" ng-click="comment = ! comment">
+    <div class="grey-panel pn sw">
+      <div class="green-header">
+        <h5>Comments</h5>
+      </div>
+      <div ng-if="currentUser.teacher === false">
+        <p class="sw-stats-d centered"><i class="fa fa-comments-o"></i>      {{writing.comments.length}}</p>
+      </div>
+      <div ng-if="currentUser.teacher === true">
+        <p class="sw-stats-d-teacher-view centered">Add/View</p>
+        <p class="sw-stats-d-teacher-view centered"><i class="fa fa-comments-o"></i>      {{writing.comments.length}}</p>
+      </div>
+    </div>
+  </div>
 
   <div class="col col-md-3">
     <div class="grey-panel pn sw">
       <div class="green-header">
         <h5>Word Count</h5>
       </div>
-      <p class="sw-stats-a centered"><i class="fa fa-chevron-circle-right"></i>      {{writing.textWordCount}}</p>
+        <p class="sw-stats-a centered"><i class="fa fa-trophy"></i>      {{writing.textWordCount}}</p>
     </div>
   </div>
 
@@ -37,15 +73,6 @@
         <h5>Negative Keywords</h5>
       </div>
       <p class="sw-stats-c centered"><i class="fa fa-arrow-circle-o-down"></i>      {{writing.negativeWordCount}}</p>
-    </div>
-  </div>
-
-  <div class="col col-md-3">
-    <div class="grey-panel pn sw">
-      <div class="green-header">
-        <h5>Comments</h5>
-      </div>
-      <p class="sw-stats-d centered"><i class="fa fa-comments-o"></i>      {{writing.comments.length}}</p>
     </div>
   </div>
 

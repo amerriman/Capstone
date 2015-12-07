@@ -167,11 +167,25 @@ a, a:hover, a:focus {
 
 
 /*Helpers*/
-
+.topdown{
+    margin-top: 8%;
+}
+.icon-space{
+    margin-left: 8px;
+    cursor: pointer;
+}
+.pointer{
+    cursor: pointer;
+}
 .centered {
 	text-align: center;
 }
-
+.show-comment {
+    text-align: left;
+    margin-left: 20px !important;
+    font-size: 18px;
+    font-weight: bold;
+}
 .goleft {
 	text-align: left;
 }
@@ -227,8 +241,8 @@ a, a:hover, a:focus {
     color: #6191C0;
 }
 .sw-stats-a {
-    font-size: 65px;
-    color: #6191C0;
+    font-size: 60px;
+    color: #E9C264;
 }
 .sw-stats-b {
     font-size: 65px;
@@ -240,7 +254,11 @@ a, a:hover, a:focus {
 }
 .sw-stats-d {
     font-size: 65px;
-    color: #E9C264;
+    color: #6191C0;
+}
+.sw-stats-d-teacher-view {
+    font-size: 30px;
+    color: #6191C0;
 }
 .ss-stats-a {
     font-size: 40px;
@@ -258,6 +276,14 @@ a, a:hover, a:focus {
     font-size: 40px;
     color: #E9C264;
 }
+.ss-stats-e {
+    font-size: 40px;
+    color: #F68275;
+}
+.ss-stats-f {
+    font-size: 40px;
+    color: #31886A;
+}
 .btn-edit{
     color: #f2f2f2;;
     background-color: #68dff0;
@@ -265,6 +291,17 @@ a, a:hover, a:focus {
 .btn-edit, .btn-edit:hover, .btn-edit:focus {
     color: #f2f2f2;;
     background-color: #68dff0;
+}
+.btn-comment{
+    color: #f2f2f2;;
+    background-color: #E9C264;
+    margin-bottom: 8px !important;
+    margin-right: 5px;
+
+}
+.btn-comment, .btn-comment:hover, .btn-comment:focus {
+    color: #f2f2f2;
+    background-color: #E9C264;
 }
 .btn-cancel {
     color: #f2f2f2;
@@ -294,6 +331,10 @@ a, a:hover, a:focus {
 .text-box {
     width: 98%;
     margin: 10px;
+}
+.comment-box {
+    width: 75% !important;
+    margin: 0 5px 20px !important;
 }
 /*Exclusive Theme Colors Configuration*/
 
@@ -937,6 +978,10 @@ PANELS CONFIGURATIONS
 	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
     margin-bottom: 25px;
 }
+.comments{
+    height: auto;
+    padding-bottom: 10px;
+}
 
 .wa{
     height: 400px;
@@ -1088,6 +1133,12 @@ PANELS CONFIGURATIONS
 .content-panel h4 {
 	margin-left: 10px;
 }
+.salmon-header {
+    background: #EF9D95;
+    padding: 3px;
+    margin-bottom: 15px;
+    color: #424A5D;
+}
 
 
 
@@ -1095,7 +1146,7 @@ PANELS CONFIGURATIONS
 /*LOGIN*/
 .form-login {
 	max-width: 330px;
-	margin: 100px auto 0;
+    margin: 70px auto 0;
 	background: #fff;
 	border-radius: 5px;
 	-webkit-border-radius: 5px;

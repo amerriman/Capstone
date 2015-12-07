@@ -8,13 +8,16 @@
                   <hr>
                     <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Word Count</th>
-                        <th>Key Words</th>
+
+<!-- <th ng-click="sortType = 'username';sortReverse = !sortReverse">Name<i class="fa fa-arrows-v icon-space"></i></th> -->
+
+                        <th ng-click="sortType = 'title';sortReverse = !sortReverse">Title <i class="fa fa-arrows-v icon-space"></i></th>
+                        <th ng-click="sortType = 'textWordCount';sortReverse = !sortReverse">  Word Count <i class="fa fa-arrows-v icon-space"></i></th>
+                        <th ng-click="sortType = 'negativeWordCount + positiveWordCount';sortReverse = !sortReverse">Key Words <i class="fa fa-arrows-v icon-space"></i></th>
                         <th></th>
                     </tr>
                     </thead>
-                    <tbody ng-repeat="writing in writings">
+                    <tbody ng-repeat="writing in writings | orderBy:sortType:sortReverse">
                     <tr>
 
                         <td><a ng-href="/#/writing/{{writing._id}}">{{writing.title}}</a>

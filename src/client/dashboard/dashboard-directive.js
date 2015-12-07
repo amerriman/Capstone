@@ -39,6 +39,37 @@ app.directive('dashboard', function() {
         return $scope.total;
       };
 
+      getStudentWritingTotals = function(array){
+        var writingCount = 0;
+        for (var i = 0; i < array.length; i++) {
+          writingCount += array[i].writings.length;
+          }
+          $scope.stWritings = writingCount;
+      };
+
+      studentWordTotals = function(array){
+        var words = 0;
+          for (var i = 0; i < array.length; i++) {
+            for (var j = 0; j < array[i].writings.length; j++) {
+              words += array[i].writings[j].textWordCount;
+            };
+          };
+         $scope.studentWords = words;
+      }
+
+      //get all students for data counts
+      getData = function(){
+          httpFactory.get('/teaUser/teacher/'+ $rootScope.currentUser._id +'/all')
+          .then(function(response){
+              var studentData = response.data.success.students;
+              // console.log(studentData, "studentData");
+              getStudentWritingTotals(studentData);
+              studentWordTotals(studentData);
+          });
+      };
+
+        getData ();
+
       getWriting();
 
 

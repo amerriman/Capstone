@@ -27,11 +27,24 @@ router.get('/sample/:id', function(req, res, next) {
 });
 
 
-//*** edit one writing ***//
+//*** edit one writing - the title only***//
 router.put('/sample/:id', function(req, res) {
   var query = {"_id": req.params.id};
   var update = {title : req.body.title};
   // console.log(update, "UPDATE");
+  var options = {new: true};
+  Writing.findOneAndUpdate(query, update, options, function(err, data){
+    if(err){
+      res.json({'message': err});
+    } else{
+      res.json(data);
+    }
+  });
+});
+
+router.put('/sample/:id/comment', function(req, res){
+  var query = {"_id": req.params.id};
+  var update = {$push:{comments : req.body.comments}};
   var options = {new: true};
   Writing.findOneAndUpdate(query, update, options, function(err, data){
     if(err){
