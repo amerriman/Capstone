@@ -2,17 +2,24 @@
     <h1>Paragraph Analysis</h1>
     <br>
     <br>
+    <form name="writingForm"
     <div class="form-group">
-        <label for="paragraph">Paste your paragraph below:</label>
-        <textarea class="form-control" rows="10" id="paragraph" ng-model='writingInput'></textarea>
-        <br>
-        <button type="submit" class="btn btn-primary" id="paragraph-submit" ng-click='getText()'>Submit</button>
+        <!-- <form> -->
+            <label for="paragraph">Paste your paragraph below:</label>
+            <textarea class="form-control" rows="10" id="paragraph" ng-model='writingInput' required></textarea>
+            <br>
+            <button type="submit" class="btn btn-primary" id="paragraph-submit" ng-click='getText()'>Submit</button>
+        <!-- </form> -->
     </div>
+
     <h4>Your paragraph:</h4>
     <div id="result-paragraph"></div>
-    <div id="add" ng-if="isAuthenticated()">
-        <input type="text" class="form-control" name="title" ng-model="writingSample.title" placeholder="Title" required>
-        <br>
-        <button class="btn btn-theme btn-block" type="button" ng-click="saveWriting()">Save the Writing!</button>
+    <div id="add">
+        <!-- <form> -->
+            <input type="text" class="form-control" name="title" ng-model="writingSample.title" placeholder="Title" required>
+            <br>
+            <button class="btn btn-theme btn-block" type="submit" ng-click="saveWriting()" ng-disabled="writingForm.$invalid">Save the Writing!</button>
+        <!-- </form> -->
     </div>
+    </form>
 <!-- </section> -->

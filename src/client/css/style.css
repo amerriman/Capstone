@@ -191,7 +191,9 @@ a, a:hover, a:focus {
 .ml {
 	margin-left: 5px;
 	}
-
+.wa{
+    height: 300px;
+}
 .no-padding {
 	padding: 0 !important;
 }
@@ -230,7 +232,7 @@ a, a:hover, a:focus {
 }
 .sw-stats-b {
     font-size: 65px;
-    color: #48BCB4
+    color: #19A72D
 }
 .sw-stats-c {
     font-size: 65px;
@@ -282,6 +284,16 @@ a, a:hover, a:focus {
 }
 #writing-sample {
     font-size: 16px;
+}
+#result-paragraph {
+    font-size: 16px;
+}
+.st-dash-col {
+    margin-top: -25px;
+}
+.text-box {
+    width: 98%;
+    margin: 10px;
 }
 /*Exclusive Theme Colors Configuration*/
 
@@ -542,7 +554,7 @@ a.logo {
     color: #ffffff;
     float: left;
     margin-top: 15px;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 }
 
 a.logo b {
@@ -1101,6 +1113,10 @@ PANELS CONFIGURATIONS
 	height: 300px;
 	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
     margin-bottom: 25px;
+}
+
+.wa{
+    height: 360px;
 }
 
 .sw{

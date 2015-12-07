@@ -1,0 +1,81 @@
+
+<div class="row mt" ng-hide="analyze">
+  <div class="col col-md-12">
+    <div class="grey-panel pn wa">
+      <div class="green-header">
+        <h2><strong><i class='fa fa-lightbulb-o'></i>   What would you like to analyze?</strong></h2>
+      </div>
+      <div>
+        <textarea class="form-control text-box" rows="10" id="paragraph" ng-model='writingInput' placeholder="Paste your text here..." required></textarea>
+        <button type="submit" class="btn btn-cancel goright" id="paragraph-submit" ng-click='getText(); analyze = ! analyze'>Check the tone!</button>
+     </div>
+    </div>
+  </div>
+</div>
+
+<div ng-show="analyze">
+  <div class="row mt">
+    <div class="col col-md-12">
+      <div class="content-panel">
+        <div class="centered">
+          <h1>Your Paragraph</h1>
+          <hr>
+        </div>
+      <div id="results-here">
+        <p id="result-paragraph"></p>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt">
+
+    <div class="col col-md-3">
+      <div class="grey-panel pn sw">
+        <div class="green-header">
+          <h5>Word Count</h5>
+        </div>
+        <p class="sw-stats-a centered"><i class="fa fa-chevron-circle-right"></i>      {{writing.textWordCount}}</p>
+      </div>
+    </div>
+
+    <div class="col col-md-3">
+      <div class="grey-panel pn sw">
+        <div class="green-header">
+          <h5>Positive Keywords</h5>
+        </div>
+        <p class="sw-stats-b centered"><i class="fa fa-arrow-circle-o-up"></i>      {{writing.positiveWordCount}}</p>
+      </div>
+    </div>
+
+    <div class="col col-md-3">
+      <div class="grey-panel pn sw">
+        <div class="green-header">
+          <h5>Negative Keywords</h5>
+        </div>
+        <p class="sw-stats-c centered"><i class="fa fa-arrow-circle-o-down"></i>      {{writing.negativeWordCount}}</p>
+      </div>
+    </div>
+
+    <div class="col col-md-3">
+      <div class="grey-panel pn sw">
+        <div class="green-header">
+          <h5>Comments</h5>
+        </div>
+        <p class="sw-stats-d centered"><i class="fa fa-comments-o"></i>      {{writing.comments.length}}</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row mt">
+    <button type="button" ng-click="reloadRoute(); analyze = ! analyze">Do it again!</button>
+  </div>
+
+
+
+</div>
+
+<!-- analyze = ! analyze' -->
+
+

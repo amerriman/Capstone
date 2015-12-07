@@ -51,8 +51,10 @@
 <!-- Student user view -->
 <div ng-if="isAuthenticated() && currentUser.teacher === false">
 <div class="row mt">
-    <div class="col-md-8">
-        <div class="content-panel">
+    <div class="col-md-8 st-dash-col">
+      <all-writing></all-writing>
+
+<!--         <div class="content-panel">
             <table class="table table-striped table-advance table-hover">
               <h1>  <img ng-src="{{currentUser.userImage}}" alt="Student"  class="studentImage" height='50px' width='50px'>   {{currentUser.username}}</h1>
               <hr>
@@ -71,7 +73,6 @@
 
                         <form ng-model="editTitle" class="form-inline repeat-animation hide-fade" ng-show="editForm" name="form">
                             <div class="form-group">
-                                <!-- <label for="classText">Class</label> -->
                                 <input name="writingTitle" ng-model="writingTitle" type="text" class="form-control input-sm" placeholder={{writing.title}}>
                             </div>
                             <button ng-click="editTitle(writingTitle, writing._id); editForm = ! editForm" type="submit" class="btn btn-default btn-sm btn-edit">Edit Title</button>
@@ -90,14 +91,14 @@
                             <button class="btn btn-danger btn-xs" ng-click="deleteButtons = ! deleteButtons"><i class="fa fa-trash-o "></i></button>
                         </div>
                         <div ng-show="deleteButtons" class="form-inline repeat-animation hide-fade confirm-buttons">
-                            <!-- <p>Are you sure?</p> -->
                             <button ng-click="deleteButtons = ! deleteButtons" type="button" class="btn btn-default btn-sm btn-cancel">Cancel</button>
                             <button ng-click="deleteWriting(writing._id); deleteButtons = ! deleteButtons" type="button" class="btn btn-default btn-sm btn-delete">DELETE</button>
                     </td>
                 </tr>
                 </tbody>
             </table>
-        </div><!-- /content-panel -->
+        </div> -->
+        <!-- /content-panel -->
     </div><!-- /col-md-12 -->
 
     <div class="col col-md-4">

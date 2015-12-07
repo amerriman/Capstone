@@ -23,7 +23,7 @@ app.directive('allWriting', function() {
           httpFactory.get('/stUser/student/' + $rootScope.currentUser._id + '/writings')
             .then(function(response){
               $scope.writings = response.data.success.writings;
-              console.log($scope.writings, "scope.writings");
+              // console.log($scope.writings, "scope.writings");
             });
         }
       };
@@ -33,22 +33,30 @@ app.directive('allWriting', function() {
 
 
       $scope.deleteWriting = function(id){
-        // alert('are you sure?');
         var userID = $rootScope.currentUser._id;
         var writingId = id;
-        console.log(writingId, "writingid");
-        console.log(id, "ID");
         httpFactory.delete('/writing/sample/' + writingId)
         .then(function(response){
-          console.log(response, "RESPONSE");
-        httpFactory.putRemove('/teaUser/teacher/' +userID + "/" +writingId)
-        .then(function(response2){
-          // console.log("HERE")
-          // console.log(response2, "response2");
-        });
-          getWriting();
+          if($rootScope.currentUser.teacher === true){
+            httpFactory.putRemove('/teaUser/teacher/' +userID + "/" +writingId)
+            .then(function(response2){
+              getWriting();
+          })
+          } else if ($rootScope.currentUser.teacher === false){
+              httpFactory.putRemove('/stUser/student/'+userID + "/" +writingId)
+              .then(function(response3){
+                getWriting();
+              })
+            }
         });
       };
+
+
+        // httpFactory.putRemove('/teaUser/teacher/' +userID + "/" +writingId)
+        // .then(function(response2){
+        // });
+        //   getWriting();
+
 
 
       $scope.editTitle = function(newTitle, id){
@@ -64,9 +72,6 @@ app.directive('allWriting', function() {
           // console.log(response, "RESPNSE");
         });
       };
-
-
-
 
 
 

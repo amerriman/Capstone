@@ -32,6 +32,10 @@ app.config(['$routeProvider', '$authProvider', '$locationProvider', function($ro
     })
     .when('/writing-analysis', {
       templateUrl: 'partials/writingAnalysis.html',
+      access: {restricted: true}
+    })
+    .when('/writing-analysis-sample', {
+      templateUrl: 'partials/writingAnalysisSample.html',
       access: {restricted: false}
     })
     .when('/all-students', {
