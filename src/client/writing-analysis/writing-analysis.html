@@ -1,25 +1,94 @@
-<!-- <section class="wrapper"> -->
-    <h1>Paragraph Analysis</h1>
-    <br>
-    <br>
-    <form name="writingForm"
-    <div class="form-group">
-        <!-- <form> -->
-            <label for="paragraph">Paste your paragraph below:</label>
-            <textarea class="form-control" rows="10" id="paragraph" ng-model='writingInput' required></textarea>
-            <br>
-            <button type="submit" class="btn btn-primary" id="paragraph-submit" ng-click='getText()'>Submit</button>
-        <!-- </form> -->
+
+
+
+
+<div class="row mt" ng-hide="analyze">
+  <div class="col col-md-12">
+    <div class="grey-panel pn wa">
+      <div class="green-header">
+        <h2><strong><i class='fa fa-lightbulb-o'></i>   What would you like to analyze?</strong></h2>
+      </div>
+      <div>
+          <form name="writingForm">
+            <input type="text" class="form-control text-box" name="title" ng-model="writingSample.title" placeholder="Title" required>
+
+            <textarea class="form-control text-box" rows="10" id="paragraph" ng-model='writingInput' placeholder="Paste your text here..." required></textarea>
+            <button type="submit" class="btn btn-cancel goright" id="paragraph-submit" ng-click='getText(); analyze = ! analyze' ng-disabled="writingForm.$invalid">Check the tone!</button>
+        </form>
+     </div>
+    </div>
+  </div>
+</div>
+
+
+<div ng-show="analyze">
+  <div class="row mt">
+    <div class="col col-md-12">
+      <div class="content-panel">
+        <div class="centered">
+          <h1>{{title}}</h1>
+          <hr>
+        </div>
+      <div id="results-here">
+        <p id="result-paragraph"></p>
+      </div>
+      </div>
+    </div>
+  </div>
+
+<div class="row mt">
+
+    <div class="col col-md-3">
+      <div class="grey-panel pn sw">
+        <div class="green-header">
+          <h5>Word Count</h5>
+        </div>
+        <p class="sw-stats-a centered"><i class="fa fa-chevron-circle-right"></i>      {{wordCount}}</p>
+      </div>
     </div>
 
-    <h4>Your paragraph:</h4>
-    <div id="result-paragraph"></div>
-    <div id="add">
-        <!-- <form> -->
-            <input type="text" class="form-control" name="title" ng-model="writingSample.title" placeholder="Title" required>
-            <br>
-            <button class="btn btn-theme btn-block" type="submit" ng-click="saveWriting()" ng-disabled="writingForm.$invalid">Save the Writing!</button>
-        <!-- </form> -->
+    <div class="col col-md-3">
+      <div class="grey-panel pn sw">
+        <div class="green-header">
+          <h5>Positive Keywords</h5>
+        </div>
+        <p class="sw-stats-b centered"><i class="fa fa-arrow-circle-o-up"></i>      {{positiveWordCount}}</p>
+      </div>
     </div>
-    </form>
-<!-- </section> -->
+
+    <div class="col col-md-3">
+      <div class="grey-panel pn sw">
+        <div class="green-header">
+          <h5>Negative Keywords</h5>
+        </div>
+        <p class="sw-stats-c centered"><i class="fa fa-arrow-circle-o-down"></i>      {{negativeWordCount}}</p>
+      </div>
+    </div>
+
+    <div class="col col-md-3">
+      <div class="grey-panel pn sw">
+        <div class="green-header">
+          <h5>Comments</h5>
+        </div>
+        <p class="sw-stats-d centered"><i class="fa fa-comments-o"></i>      0</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row mt">
+    <button type="button" class="btn btn-cancel" ng-click="reloadRoute(); analyze = ! analyze">Add another writing</button>
+<!--     <button type="button" ng-click="reloadRoute(); analyze = ! analyze"><a >Go to your dashboard</a></button>
+    <button type="button" ng-if="currentUser.teacher === true" ng-click="reloadRoute(); analyze = ! analyze"><a >See all my writing</a></button> -->
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+

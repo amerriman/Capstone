@@ -2,7 +2,7 @@ app.directive('writingAnalysis', function() {
   return {
     restrict: 'E',
     templateUrl: '/writing-analysis/writing-analysis.html',
-    controller: ['$rootScope', '$scope', '$http', '$auth', '$location', 'httpFactory', function ($rootScope, $scope, $http, $auth, $location, httpFactory){
+    controller: ['$rootScope', '$scope', '$http', '$auth', '$location', '$route', '$window', 'httpFactory', function ($rootScope, $scope, $http, $auth, $location, $route, $window, httpFactory){
 
       $scope.isAuthenticated = function() {
         return $auth.isAuthenticated();
@@ -38,6 +38,7 @@ app.directive('writingAnalysis', function() {
         //in main.js - reconstructs the writing sample
 
         postParagraph(positive, negative);
+        saveWriting();
         return positive, negative;
       };
 
@@ -56,24 +57,32 @@ app.directive('writingAnalysis', function() {
       $scope.getText = function(){
         httpFactory.get('/analyze/'+ $scope.writingInput)
         .then(function(response){
+          console.log(response, "response.data");
           sortSentiment(response.data);
           $scope.writingSample.text = coloredParagraph;
-          // console.log(coloredParagraph, "Colored paragraph in directive");
+          console.log(coloredParagraph, "Colored paragraph in directive");
+
           appendText(coloredParagraph);
+
         });
       };
 
       //add new writing to appropriate user
-      $scope.saveWriting = function(){
+      saveWriting = function(){
         var payload = $scope.writingSample;
-        // console.log(payload, 'payload')
+        console.log(payload, 'payload');
+        $scope.title = $scope.writingSample.title;
+        $scope.wordCount = $scope.writingSample.textWordCount;
+        $scope.positiveWordCount = $scope.writingSample.positiveWordCount;
+        $scope.negativeWordCount = $scope.writingSample.negativeWordCount;
+
         if($rootScope.currentUser.teacher === true){
           httpFactory.post('/teaUser/teacher/'+ $rootScope.currentUser._id + '/writings', payload)
             .then(function(response){
-              console.log(response, "RESPONSE");
+              console.log(response.data.SUCCESS, "RESPONSE ID");
+
               $scope.writingSample = {};
               $scope.writingInput = '';
-              unappendText();
         });
         } else if($rootScope.currentUser.teacher === false){
           httpFactory.post('/stUser/student/' + $rootScope.currentUser._id + '/writings', payload)
@@ -81,13 +90,17 @@ app.directive('writingAnalysis', function() {
             console.log(response);
             $scope.writingSample = {};
             $scope.writingInput = '';
-            unappendText();
+            $scope.writingid = response.data.SUCCESS._id;
+
           });
         }
       };
 
 
-
+      $scope.reloadRoute = function() {
+          // $route.reload();
+          $window.location.reload();
+      };
 
     }]
   };

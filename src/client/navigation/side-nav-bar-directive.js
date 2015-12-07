@@ -15,8 +15,10 @@ app.directive('sideNavBar', function () {
       };
 
       $scope.reloadRoute = function() {
-        $route.reload();
+        $window.location.reload();
+        // $route.reload();
       };
+
 
     }],
   };
