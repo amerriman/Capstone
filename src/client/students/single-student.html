@@ -3,6 +3,9 @@
         <div class="content-panel">
             <table class="table table-striped table-advance table-hover">
               <h1>  <img ng-src="{{studentImage}}" alt="Student"  class="studentImage" height='50px' width='50px'>   {{studentName}}</h1>
+                <div class="circles-loader circles-centered" ng-show="loading">
+                  Loading…
+                </div>
               <hr>
                 <thead>
                 <tr>
@@ -34,9 +37,6 @@
 
                     </td>
                     <td>
-                        <div class="circles-loader circles-centered" ng-show="loading">
-                          Loading…
-                        </div>
                         {{writing.textWordCount}}
                     </td>
                     <td>{{writing.negativeWordCount + writing.positiveWordCount}}</td>
