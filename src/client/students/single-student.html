@@ -33,7 +33,12 @@
 
 
                     </td>
-                    <td>{{writing.textWordCount}}</td>
+                    <td>
+                        <div class="circles-loader circles-centered" ng-show="loading">
+                          Loading…
+                        </div>
+                        {{writing.textWordCount}}
+                    </td>
                     <td>{{writing.negativeWordCount + writing.positiveWordCount}}</td>
 
                     <td class="centered">

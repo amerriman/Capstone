@@ -11,6 +11,8 @@ app.directive('singleWriting', function() {
       $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
       var id = $routeParams.id;
+      $scope.loading = true;
+
 
       $scope.reloadRoute = function() {
           // $route.reload();
@@ -30,6 +32,8 @@ app.directive('singleWriting', function() {
           $scope.comments = (response.data.comments);
           // console.log($scope.comments, "comments");
           appendText($scope.writing.text);
+          $scope.loading = false;
+
         });
       };
 

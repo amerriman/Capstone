@@ -14,6 +14,8 @@ app.directive('singleStudent', function() {
 
       $scope.sortType = "title";
       $scope.sortReverse = false;
+      $scope.loading = true;
+
 
 
       getWriting = function(){
@@ -24,6 +26,7 @@ app.directive('singleStudent', function() {
             var writings = response.data.success.writings;
             $scope.studentName = response.data.success.username;
             $scope.studentImage = response.data.success.userImage;
+            $scope.loading = false;
             wordCount(writings);
           });
       };
