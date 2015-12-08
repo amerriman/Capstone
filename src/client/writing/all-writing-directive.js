@@ -12,6 +12,7 @@ app.directive('allWriting', function() {
 
       $scope.sortType = "title";
       $scope.sortReverse  = false;
+      $scope.loading = true;
 
       getWriting = function(){
         if($rootScope.currentUser.teacher === true){
@@ -19,12 +20,14 @@ app.directive('allWriting', function() {
             .then(function(response){
               // console.log(response.data.success, "response data success");
               $scope.writings = response.data.success.writings;
+              $scope.loading = false;
               // console.log($scope.writings);
             });
         } else if($rootScope.currentUser.teacher === false){
           httpFactory.get('/stUser/student/' + $rootScope.currentUser._id + '/writings')
             .then(function(response){
               $scope.writings = response.data.success.writings;
+              $scope.loading = false;
               // console.log($scope.writings, "scope.writings");
             });
         }

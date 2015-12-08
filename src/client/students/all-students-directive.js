@@ -12,6 +12,7 @@ app.directive('allStudents', function() {
 
       $scope.sortType = "username";
       $scope.sortReverse  = false;
+      $scope.loading = true;
 
       getStudents = function(){
         httpFactory.get('/teaUser/teacher/'+ $rootScope.currentUser._id +'/students')
@@ -19,6 +20,7 @@ app.directive('allStudents', function() {
           // console.log(response.data.success[0].writings.length);
           $scope.students = response.data.success.students;
           // console.log($scope.students)
+          $scope.loading = false;
         });
       };
 
