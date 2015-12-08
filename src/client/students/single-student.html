@@ -44,7 +44,7 @@
                     <td class="centered">
                         <div ng-show="!deleteButtons" class="form-inline repeat-animation hide-fade confirm-buttons">
                             <button class="btn btn-primary btn-xs"><span ng-click="editForm = !editForm"><i class="fa fa-pencil"></i></span></button>
-                            <button class="btn btn-danger btn-xs" ng-click="deleteButtons = ! deleteButtons"><i class="fa fa-trash-o "></i></button>
+                            <button class="btn btn-danger btn-xs" ng-click="deleteButtons = ! deleteButtons" ng-hide="currentUser.teacher === true"><i class="fa fa-trash-o "></i></button>
                         </div>
                         <div ng-show="deleteButtons" class="form-inline repeat-animation hide-fade confirm-buttons">
                             <!-- <p>Are you sure?</p> -->

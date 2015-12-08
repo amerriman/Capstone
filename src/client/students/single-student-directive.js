@@ -44,11 +44,39 @@ app.directive('singleStudent', function() {
       getWriting();
 
 
+      $scope.deleteWriting = function(id){
+        var userID = $rootScope.currentUser._id;
+        var writingId = id;
+        httpFactory.delete('/writing/sample/' + writingId)
+        .then(function(response){
+          if($rootScope.currentUser.teacher === true){
+            httpFactory.putRemove('/teaUser/teacher/' +userID + "/" +writingId)
+            .then(function(response2){
+              getWriting();
+          })
+          } else if ($rootScope.currentUser.teacher === false){
+              httpFactory.putRemove('/stUser/student/'+userID + "/" +writingId)
+              .then(function(response3){
+                getWriting();
+              })
+            }
+        });
+      };
 
 
-
-
-
+      $scope.editTitle = function(newTitle, id){
+        // console.log(newTitle, id)
+        var writingId = id;
+        var payload = {
+          'title': newTitle
+        };
+        // console.log(payload)
+        httpFactory.put('/writing/sample/'+ writingId, payload)
+        .then(function(response){
+          getWriting();
+          // console.log(response, "RESPNSE");
+        });
+      };
 
 
 
