@@ -6,6 +6,12 @@ app.directive('login', function () {
       //$auth is for satellizer
 
         $scope.login = {};
+        $scope.error = false;
+        $scope.message= "";
+
+        function messageTimeout(){
+          $scope.success = false;
+        }
 
         $scope.login = function() {
           var user = {
@@ -22,6 +28,10 @@ app.directive('login', function () {
             })
             .catch(function(response) {
               console.log(response);
+              $scope.error = true;
+              $scope.message= "Incorrect username or password!";
+              $timeout(messageTimeout, 3000);
+
             });
         };
 
@@ -37,6 +47,9 @@ app.directive('login', function () {
             })
           .catch(function(response) {
             console.log(response);
+            $scope.error = true;
+            $scope.message= "You must be registered with a Gmail account to sign in with Google";
+            $timeout(messageTimeout, 3000);
           });
 
         };
@@ -51,7 +64,7 @@ app.directive('login', function () {
         $scope.logout = function() {
           $auth.logout();
           delete $window.localStorage.currentUser;
-          $location.path('/home');
+          $location.path('/');
         };
 
     }],

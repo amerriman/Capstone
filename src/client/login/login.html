@@ -2,6 +2,9 @@
       <form class="form-login" method="post" ng-submit="login()" name="loginForm" novalidate>
         <h2 class="form-login-heading">sign in now</h2>
         <div class="login-wrap">
+            <div class="message-section" ng-show="error">
+                <p class="alert alert-danger" role="alert" id="message">{{message}}</p>
+            </div>
             <input type="text" class="form-control" name="username" ng-model="login.username" placeholder="First and Last name" required autofocus>
             <br>
             <input type="password" class="form-control" name="password" ng-model="login.password" placeholder="Password" required>
@@ -16,17 +19,9 @@
             <hr>
 
             <div class="login-social-link centered">
-            <p>or you can sign in via Google</p>
+            <p>or teachers can sign in via Google</p>
                 <button class="btn btn-google" ng-click="authenticate('google')"><i class="fa fa-google"></i> Google</button>
-                <!-- <button class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</button> -->
             </div>
-      <!--       <div class="registration">
-                Don't have an account yet?<br/>
-                <a class="" href="/#/">
-                    Create an account
-                </a>
-            </div> -->
-
         </div>
       </form>
 </div>

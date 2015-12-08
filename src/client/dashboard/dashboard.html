@@ -1,28 +1,44 @@
+
+<!-- no-account view -->
+<div ng-if="!isAuthenticated()">
+<sample-dashboard></sample-dashboard>
+<!--   <div class="row mt">
+    <div class="col col-md-12">
+      <div class="grey-panel">
+        <div class="blue-header">
+          <h2>TEACHER VIEWS</h2>
+        </div>
+        <img src="../images/teacherDashboard.png" alt="Teacher Dashboard" width="40%", height="auto">
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row mt">
+    <div class="col col-md-12">
+      <div class="grey-panel">
+        <div class="blue-header">
+          <h2>STUDENT VIEWS</h2>
+        </div>
+        <img src="../images/studentDashboard.png" alt="Student Dashboard" width="75%", height="auto">
+      </div>
+    </div>
+  </div> -->
+
+</div>
+
+
 <!-- Teacher user view -->
+
 <div ng-if="isAuthenticated() && currentUser.teacher === true">
 
   <div class="row mt">
-
-    <div class="col col-md-4">
-      <div class="grey-panel pn">
-        <div class="green-header">
-          <h4>Student Info</h4>
-        </div>
-        <p class="ss-stats-e centered topdown"><strong><i class="fa fa-graduation-cap"></i> {{currentUser.students.length}} students</strong></p>
-        <p class="ss-stats-a centered"><strong><i class="fa fa-chevron-circle-right"></i> {{stWritings}} samples</strong></p>
-        <p class="ss-stats-d centered"><strong><i class="fa fa-trophy"></i> {{studentWords}} words</strong></p>
-      </div>
-    </div>
-
-    <div class="col col-md-4">
-      <div class="grey-panel pn">
-        <div class="green-header">
-        <h4>Your Info</h4>
-        </div>
-        <p class="ss-stats-a centered topdown"><strong><i class="fa fa-chevron-circle-right"></i> {{currentUser.writings.length}} samples</strong></p>
-        <p class="ss-stats-d centered"><strong><i class="fa fa-trophy"></i> {{total}} words</strong></p>
-        <p class="ss-stats-f centered"><strong><i class="fa fa-check"></i> 3 classes</strong></p>
-
+    <div class="col col-md-8">
+      <div class="content-panel">
+        <h3><i class="fa fa-angle-right"></i><strong>Student Word Counts</strong></h3>
+          <hr>
+        <teacher-multibar-dash></teacher-multibar-dash>
       </div>
     </div>
 
@@ -33,18 +49,22 @@
         </div>
         <teacher-pie-dash></teacher-pie-dash>
       </div>
-    </div>
 
-  </div>
-
-  <div class="row mt">
-    <div class="col col-md-12">
-      <div class="content-panel">
-        <h3><i class="fa fa-angle-right"></i><strong>Student Word Counts</strong></h3>
-          <hr>
-        <teacher-multibar-dash></teacher-multibar-dash>
+      <div class="row mt">
+        <div class="col col-md-12">
+          <div class="grey-panel stst">
+            <div class="green-header">
+              <h4>Student Info</h4>
+            </div>
+            <p class="ss-stats-e centered topdown"><strong><i class="fa fa-graduation-cap"></i> {{currentUser.students.length}} students</strong></p>
+            <p class="ss-stats-f centered"><strong><i class="fa fa-chevron-circle-right"></i> {{stWritings}} samples</strong></p>
+            <p class="ss-stats-g centered"><strong><i class="fa fa-trophy"></i> {{studentWords}} words</strong></p>
+          </div>
+        </div>
       </div>
+
     </div>
+
   </div>
 
 </div> <!-- end outer div with ifAuth -->
@@ -55,7 +75,7 @@
 
 <!-- Student user view -->
 <div ng-if="isAuthenticated() && currentUser.teacher === false">
-<div class="row mt">
+  <div class="row mt">
 
     <div class="col-md-8 st-dash-col">
       <all-writing></all-writing>
@@ -90,15 +110,12 @@
           </div>
         </div>
 
-
       </div>
 
     </div>
+
+  </div>
 </div>
-
-
-</div>
-
 
 
 

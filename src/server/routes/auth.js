@@ -154,7 +154,7 @@ router.post('/login', function(req, res){
       user.comparePassword(req.body.password, function(err, isMatch){
         if(!isMatch){
           return res.status(401).send({
-            message: 'Wrong username or password for the teacher'
+            message: 'Wrong username or password'
           });
         } else if (isMatch){
           user = user.toObject();
@@ -172,7 +172,7 @@ router.post('/login', function(req, res){
           user.comparePassword(req.body.password, function(err, studentMatch){
             if (!studentMatch){
               return res.status(401).send({
-                message: 'Wrong username or password for the student'
+                message: 'Wrong username or password'
               });
             } else if (studentMatch){
               user = user.toObject();

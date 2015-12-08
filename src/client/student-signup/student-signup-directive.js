@@ -5,6 +5,12 @@ app.directive('studentSignup', function () {
     controller: ["$scope", "$http", "$auth", "$location", function ($scope, $http, $auth, $location) {
 
       $scope.studentSignup = {};
+      $scope.error = false;
+      $scope.message= "";
+
+        function messageTimeout(){
+          $scope.success = false;
+        }
 
       $scope.studentSignup = function() {
         var student = {
@@ -18,10 +24,19 @@ app.directive('studentSignup', function () {
         .then(function(response){
           console.log(response, 'RESPONSE');
           $scope.studentSignup = {};
-          $location.path('/login');
+          if(response.data.message = "Whoops - invalid code!"){
+            $scope.error = true;
+            $scope.message= "Whoops! Invalid code!";
+            $timeout(messageTimeout, 3000);
+          } else{
+            $location.path('/login');
+          }
         })
         .catch(function(response){
             console.log(response, 'response');
+              $scope.error = true;
+              $scope.message= "Incorrect username or password!";
+              $timeout(messageTimeout, 3000);
         });
 
         // $auth.signup(student)

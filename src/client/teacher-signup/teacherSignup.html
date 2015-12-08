@@ -2,6 +2,9 @@
       <form class="form-login" method="post" ng-submit="signup()" name="teacherSignupForm">
         <h2 class="form-login-heading">teacher sign-up</h2>
         <div class="login-wrap">
+          <div class="message-section" ng-show="error">
+            <p class="alert alert-danger" role="alert" id="message">{{message}}</p>
+          </div>
           <input class="form-control" type="text" name="name" ng-model="teacherSignup.name" placeholder="First and Last Name" required autofocus>
             <br>
           <input class="form-control" type="email" name="email" ng-model="teacherSignup.email" placeholder="Email" required>

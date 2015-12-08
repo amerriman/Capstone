@@ -8,7 +8,7 @@
 
           <li class="sub-menu">
           <!-- <li class="mt"> -->
-              <a href="/#/dashboard">
+              <a href="/#/">
                   <i class="fa fa-dashboard"></i>
                   <span>Dashboard</span>
               </a>
@@ -53,7 +53,7 @@
 
           <li class="sub-menu">
           <!-- <li class="mt"> -->
-              <a href="/#/dashboard">
+              <a href="/#/">
                   <i class="fa fa-dashboard"></i>
                   <span>Dashboard</span>
               </a>
@@ -86,23 +86,22 @@
       <!-- unauth sidebar menu start-->
       <ul class="sidebar-menu" id="nav-accordion" ng-if="!isAuthenticated()">
 
-          <!-- <p class="centered"><a href="profile.html"><img src="" class="img-circle" alt="profile pic" width="60"></a></p> -->
-          <!-- <h5 class="centered" ng-if="isAuthenticated()">{{currentUser.username}}</h5> -->
+          <p class="centered"><a href="profile.html"><img src="http://tr3.cbsistatic.com/fly/230-fly/bundles/techrepubliccore/images/icons/standard/icon-user-default.png" class="img-circle" alt="profile pic" width="60"></a></p>
+          <h5 class="centered">Welcome!</h5>
 
           <li class="sub-menu">
-          <!-- <li class="mt"> -->
-              <a href="/#/">
+              <a href="/#/" >
+                  <i class="fa fa-home"></i>
+                  <span>Home</span>
+              </a>
+          </li>
+
+<!--           <li class="sub-menu">
+              <a href="/#/sample-dash">
                   <i class="fa fa-dashboard"></i>
-                  <span>Sample Teacher</span>
+                  <span>Sample Dashboard</span>
               </a>
-          </li>
-
-          <li class="sub-menu">
-              <a href="" >
-                  <i class="fa fa-graduation-cap"></i>
-                  <span>Sample Student</span>
-              </a>
-          </li>
+          </li> -->
 
           <li class="sub-menu">
               <a href="/#/writing-analysis-sample" ng-click="reloadRoute()">

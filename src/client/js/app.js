@@ -12,7 +12,7 @@ app.config(['$routeProvider', '$authProvider', '$locationProvider', function($ro
 
   $routeProvider
     .when('/', {
-      templateUrl: 'partials/home.html',
+      templateUrl: 'partials/dashboard.html',
       access: {restricted: false}
     })
     .when('/teacher-signup', {
@@ -54,15 +54,10 @@ app.config(['$routeProvider', '$authProvider', '$locationProvider', function($ro
       templateUrl: 'partials/singleWriting.html',
       access: {restricted: true}
     })
-    .when('/dashboard', {
-      templateUrl: 'partials/dashboard.html',
+    .when('/sample-dash', {
+      templateUrl: 'partials/sampleDashboard.html',
       access: {restricted: false}
     })
-    // .when('/home', {
-    //   templateUrl: 'partials/home.html',
-    //   // controller: 'signupCtrl',
-    //   access: {restricted: false}
-    // })
     .otherwise('/');
 
 }]);
