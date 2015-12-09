@@ -70,7 +70,7 @@ app.directive('writingAnalysisSample', function() {
         if($rootScope.currentUser.teacher === true){
           httpFactory.post('/teaUser/teacher/'+ $rootScope.currentUser._id + '/writings', payload)
             .then(function(response){
-              console.log(response, "RESPONSE");
+              // console.log(response, "RESPONSE");
               $scope.writingSample = {};
               $scope.writingInput = '';
               unappendText();
@@ -78,7 +78,7 @@ app.directive('writingAnalysisSample', function() {
         } else if($rootScope.currentUser.teacher === false){
           httpFactory.post('/stUser/student/' + $rootScope.currentUser._id + '/writings', payload)
           .then(function(response){
-            console.log(response);
+            // console.log(response);
             $scope.writingSample = {};
             $scope.writingInput = '';
             unappendText();

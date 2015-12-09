@@ -26,7 +26,7 @@ app.directive('teacherSignup', function () {
             $location.path('/login');
           })
           .catch(function(response) {
-            console.log(response, "RESPONSE.DATA in teacher register");
+            // console.log(response, "RESPONSE.DATA in teacher register");
               $scope.error = true;
               $scope.message= "Whoops! The Email, name or code you entered is already taken!";
               $timeout(messageTimeout, 3000);

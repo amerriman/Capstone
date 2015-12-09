@@ -2,7 +2,7 @@ app.directive('studentSignup', function () {
   return {
     restrict: 'E',
     templateUrl: '/student-signup/studentSignup.html',
-    controller: ["$scope", "$http", "$auth", "$location", function ($scope, $http, $auth, $location) {
+    controller: ["$scope", "$http", "$auth", "$location", "$timeout", function ($scope, $http, $auth, $location, $timeout) {
 
       $scope.studentSignup = {};
       $scope.error = false;
@@ -22,9 +22,9 @@ app.directive('studentSignup', function () {
 
       $http.post('/auth/register', student)
         .then(function(response){
-          console.log(response, 'RESPONSE');
+          // console.log(response, 'RESPONSE');
           $scope.studentSignup = {};
-          if(response.data.message = "Whoops - invalid code!"){
+          if(!response.data.token){
             $scope.error = true;
             $scope.message= "Whoops! Invalid code!";
             $timeout(messageTimeout, 3000);
@@ -34,9 +34,7 @@ app.directive('studentSignup', function () {
         })
         .catch(function(response){
             console.log(response, 'response');
-              $scope.error = true;
-              $scope.message= "Incorrect username or password!";
-              $timeout(messageTimeout, 3000);
+
         });
 
         // $auth.signup(student)

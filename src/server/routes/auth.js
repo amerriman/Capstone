@@ -109,11 +109,12 @@ router.post('/register', function(req, res, next){
     if(err){
       res.json({'message': err});
     } else if(!teacher){
+      // console.log(teacher, "TEACHER")
       // console.log(err, "CODE ERR");
       res.json({'message': "Whoops - invalid code!"});
     } else if(teacher){
       var user = new Student(payload);
-      console.log(user, "STUDENT USER");
+      // console.log(user, "STUDENT USER");
       user.save(function(err, user){
         // var token = createToken(user);
         // console.log(token, 'TOKEN');

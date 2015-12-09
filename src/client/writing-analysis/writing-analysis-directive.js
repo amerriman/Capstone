@@ -57,10 +57,10 @@ app.directive('writingAnalysis', function() {
       $scope.getText = function(){
         httpFactory.get('/analyze/'+ $scope.writingInput)
         .then(function(response){
-          console.log(response, "response.data");
+          // console.log(response, "response.data");
           sortSentiment(response.data);
           $scope.writingSample.text = coloredParagraph;
-          console.log(coloredParagraph, "Colored paragraph in directive");
+          // console.log(coloredParagraph, "Colored paragraph in directive");
 
           appendText(coloredParagraph);
 
@@ -70,7 +70,7 @@ app.directive('writingAnalysis', function() {
       //add new writing to appropriate user
       saveWriting = function(){
         var payload = $scope.writingSample;
-        console.log(payload, 'payload');
+        // console.log(payload, 'payload');
         $scope.title = $scope.writingSample.title;
         $scope.wordCount = $scope.writingSample.textWordCount;
         $scope.positiveWordCount = $scope.writingSample.positiveWordCount;
@@ -79,7 +79,7 @@ app.directive('writingAnalysis', function() {
         if($rootScope.currentUser.teacher === true){
           httpFactory.post('/teaUser/teacher/'+ $rootScope.currentUser._id + '/writings', payload)
             .then(function(response){
-              console.log(response.data.SUCCESS, "RESPONSE ID");
+              // console.log(response.data.SUCCESS, "RESPONSE ID");
 
               $scope.writingSample = {};
               $scope.writingInput = '';
@@ -87,7 +87,7 @@ app.directive('writingAnalysis', function() {
         } else if($rootScope.currentUser.teacher === false){
           httpFactory.post('/stUser/student/' + $rootScope.currentUser._id + '/writings', payload)
           .then(function(response){
-            console.log(response);
+            // console.log(response);
             $scope.writingSample = {};
             $scope.writingInput = '';
             $scope.writingid = response.data.SUCCESS._id;

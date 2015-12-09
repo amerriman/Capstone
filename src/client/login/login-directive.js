@@ -2,7 +2,7 @@ app.directive('login', function () {
   return {
     restrict: 'E',
     templateUrl: '/login/login.html',
-    controller: ["$scope", "$auth", "$rootScope", "$window", "$location", function ($scope, $auth, $rootScope, $window, $location) {
+    controller: ["$scope", "$auth", "$rootScope", "$window", "$location", "$timeout", function ($scope, $auth, $rootScope, $window, $location, $timeout) {
       //$auth is for satellizer
 
         $scope.login = {};
@@ -21,13 +21,13 @@ app.directive('login', function () {
 
           $auth.login(user)
             .then(function(response) {
-              console.log(response);
+              // console.log(response);
               $window.localStorage.currentUser = JSON.stringify(response.data.user);
               $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
               $location.path('/dashboard');
             })
             .catch(function(response) {
-              console.log(response);
+              // console.log(response);
               $scope.error = true;
               $scope.message= "Incorrect username or password!";
               $timeout(messageTimeout, 3000);
@@ -41,12 +41,12 @@ app.directive('login', function () {
             .then(function(response) {
               $window.localStorage.currentUser = JSON.stringify(response.data.user);
               $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-              console.log($rootScope.currentUser, "Root scope current user");
-              console.log(response);
+              // console.log($rootScope.currentUser, "Root scope current user");
+              // console.log(response);
               $location.path('/dashboard');
             })
           .catch(function(response) {
-            console.log(response);
+            // console.log(response);
             $scope.error = true;
             $scope.message= "You must be registered with a Gmail account to sign in with Google";
             $timeout(messageTimeout, 3000);
@@ -56,7 +56,7 @@ app.directive('login', function () {
 
         $scope.isAuthenticated = function() {
             // console.log("HERE")
-          console.log($rootScope.currentUser, "Root scope current user in isAuthenticated");
+          // console.log($rootScope.currentUser, "Root scope current user in isAuthenticated");
 
           return $auth.isAuthenticated();
         };

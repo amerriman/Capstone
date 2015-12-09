@@ -12,7 +12,7 @@ deploy:
   provider: heroku
   api_key:
     secure: DDVc7Su2mc+24E/CLfya+Et9H7Z3jaf6+RxhDHgSO/igvAPYbfMK0sevgfhnHpTZx3MkZkgsdzk+aCnEYhl21TWx+VknkccoyTS+ERDZ0pSUfwSfiYWB9bUhe/K3P37rANG4CdcNXr4S1chlttwLVSiKvhPfB5H7DjfkVZjFapUxALPiEOv+N9hXSx/K89upExn3M2JXKemjXC7fgxKp4k1CvPPirlRmKOjPSwUb1avDFq4OvAotHVqE4+tGOzsbBi558TMgSUQ/lVkKgXERybcSlVFwLhl+NJ+jm1/hxqOkaHblVw9QNsnSjeKBEla/2781Yhps/Vm1Agy55jEnomeDDPv/6j2PALUPjxRqsgWZXpbE4/IzsgcWPmdq8bD9FUyH2DmEDb9RH6uw6QjVS2uIhYWYKRXlkCYyJFQIYbQUZf5bpMEU4uuCxU6Y52gKrmWezOxJ3HlBXd15xJQB/icQomSYhWPtDFZn+6bIWGi6GLuln/nCWHsPfQr9I6mkpBYsr2tpkmDOG6T2zvCao8JTJTgro8/PhgGBMqmxfNIIyr0V81pKxpMqJVpczK6BkPLDOFNUhjA0pcae/mRs6xfgKsXkvxdrc/ic0zxqedAMCKZZCs/SZj0QEhG5tun2P3/gzpvvABBoqywREV9B4fBMuQv3egAIDG2ihf26mi0=
-  app: calm-woodland-6759
+  app: writone
   on:
     repo: amerriman/Capstone
     branch: master
