@@ -4,7 +4,8 @@ var coloredParagraph = "";
 //Oh man - must refactor....
 function postParagraph(posArray, negArray){
   var text = $('#paragraph').val();
-  var textCopy = text.split(/\W+/);
+  // var textCopy = text.split(/\W+/);
+  var textCopy = text.split(" ");
   // var coloredParagraph = "";
   // var index;
   var count = 0;
@@ -16,7 +17,7 @@ function postParagraph(posArray, negArray){
     //check to see if textCopy word matches any words in the posArray
     for (var j = 0; j < posArray.length; j++) {
       //if there's a match, add the word to the new paragraph
-      if(textCopy[i]===posArray[j]){
+      if(textCopy[i].split(/\W+/)[0]===posArray[j]){
         coloredParagraph += " " + '<span class="green">' +posArray[j].toUpperCase()+'</span>';
           break;
       } else {
@@ -28,7 +29,7 @@ function postParagraph(posArray, negArray){
           //start looping through the neg array
           for (var k = 0; k < negArray.length; k++) {
             //if there's a match, add the word to the new p
-            if(textCopy[i]===negArray[k]){
+            if(textCopy[i].split(/\W+/)[0]===negArray[k]){
               coloredParagraph += " " + '<span class="red">' + negArray[k].toUpperCase()+'</span>';
                 break;
             } else {
