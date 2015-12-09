@@ -1,5 +1,3 @@
-
-
 /* Import fonts */
 /*@import url(//fonts.googleapis.com/css?family=Ruda:400,700,900);*/
 
@@ -37,7 +35,9 @@ a, a:hover, a:focus {
     padding-left: 0px;
 }
 
-
+.cursor {
+    cursor: pointer;
+}
 
 /* Bootstrap Modifications */
 .btn-round {
@@ -322,6 +322,9 @@ a, a:hover, a:focus {
 }
 #result-paragraph {
     font-size: 16px;
+}
+#results-here {
+    font-size: 17px;
 }
 .st-dash-col {
     margin-top: -25px;
